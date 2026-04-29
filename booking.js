@@ -44,7 +44,7 @@
    ════════════════════════════════════════════════════════════════ */
 
 // ──── Paste your published Google Sheet CSV URL here ────
-const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRbMHdbnqjHKfakK1JovRq5vTPeNhXGcJt68zVVNymLKs_DcDtRLTQJVIST-Jumf4wBIYDdB--SUrk7/pub?gid=0&single=true&output=csv';
+const SHEET_CSV_URL = '';
 // Example: 'https://docs.google.com/spreadsheets/d/e/2PACX-xxxxx/pub?gid=0&single=true&output=csv'
 
 
@@ -245,6 +245,28 @@ function openModal(game) {
   document.getElementById('gmodalDiff').textContent    = '⭐'.repeat(game.diff);
   document.getElementById('gmodalGenre').textContent   =
     (game.cat || '').charAt(0).toUpperCase() + (game.cat || '').slice(1);
+
+  // Show the game image as the modal cover. If there's no image (or
+  // it fails to load), fall back to the stylized letter — same logic
+  // as the cards, just for the bigger modal cover.
+  const cover  = document.getElementById('gmodalCover');
+  const letter = document.getElementById('gmodalLetter');
+  const oldImg = cover.querySelector('img');
+  if (oldImg) oldImg.remove();
+
+  if (game.img) {
+    const img = document.createElement('img');
+    img.src    = game.img;
+    img.alt    = game.name;
+    img.className = 'gmodal-img';
+    img.onerror = () => { img.remove(); letter.style.display = ''; };
+    // Insert image as the first child so the letter + close button
+    // sit on top of it.
+    cover.insertBefore(img, cover.firstChild);
+    letter.style.display = 'none';
+  } else {
+    letter.style.display = '';
+  }
 
   document.getElementById('gmodalBg').classList.add('open');
   document.body.style.overflow = 'hidden';
