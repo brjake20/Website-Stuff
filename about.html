@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>About — Raven & Dragon</title><link rel="stylesheet" href="styles.css">
+<style>
+.about-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;padding:0 48px 120px;}
+.astat-card{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:44px;backdrop-filter:blur(14px);position:relative;overflow:hidden;}
+.astat-card::before{content:'';position:absolute;top:-60px;right:-60px;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(124,58,237,.08),transparent 70%);pointer-events:none;}
+.astat{margin-bottom:28px;}.astat:last-child{margin-bottom:0;}
+.astat-n{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:3rem;font-weight:300;background:linear-gradient(135deg,var(--purple-hi),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.astat-l{font-size:.65rem;letter-spacing:.24em;text-transform:uppercase;color:var(--dim);margin-top:2px;}
+.astat-div{height:1px;background:rgba(255,255,255,.05);margin:24px 0;}
+.about-copy h2{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:300;line-height:1.15;margin-bottom:20px;}
+.about-copy p{font-size:.9rem;font-weight:300;line-height:1.85;color:var(--dim);margin-bottom:14px;}
+
+/* Values section */
+.values{max-width:1200px;margin:0 auto;padding:0 48px 120px;}
+.values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.val-card{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.05);border-radius:12px;padding:32px 28px;transition:all .35s;}
+.val-card:hover{border-color:rgba(168,85,247,.2);transform:translateY(-4px);}
+.val-icon{font-size:1.8rem;margin-bottom:16px;display:block;}
+.val-title{font-family:'Cinzel',serif;font-size:.82rem;font-weight:600;letter-spacing:.06em;margin-bottom:8px;color:#fff;}
+.val-desc{font-size:.8rem;color:var(--dim);line-height:1.7;font-weight:300;}
+
+@media(max-width:900px){
+  .about-grid{grid-template-columns:1fr;padding:0 24px 80px;gap:40px;}
+  .values{padding:0 24px 80px;}.values-grid{grid-template-columns:1fr;}
+}
+</style></head><body>
+<div id="cur"></div><div id="curR"></div>
+<nav id="nav">
+  <a href="index.html" class="nav-mark">R</a>
+  <ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="about.html" class="active">About</a></li><li><a href="booking.html">Booking</a></li><li><a href="groups.html">Groups</a></li><li><a href="faq.html">FAQ</a></li></ul>
+  <a href="booking.html" class="nav-pill">Book Now ↗</a>
+  <button class="burger" id="burger"><span></span><span></span><span></span></button>
+</nav>
+<div class="mob-menu" id="mobMenu"><a href="index.html">Home</a><a href="about.html" class="active">About</a><a href="booking.html">Booking</a><a href="groups.html">Groups</a><a href="faq.html">FAQ</a>
+  <a href="booking.html" class="mob-cta">Book Now ↗</a><div class="mob-menu-foot"><span>Route 66 · Williams, AZ</span><a href="tel:+17144147233">(714) 414-7233</a></div></div>
+
+<div class="page-hero">
+  <span class="eyebrow reveal">Our Story</span>
+  <h1 class="sec-title reveal d1">Where Legends<br>Come to Life</h1>
+  <p class="sec-sub reveal d2">Born on Route 66 in Williams, Arizona — built for warriors, dreamers, and anyone who craves the extraordinary.</p>
+</div>
+
+<div class="about-grid">
+  <div class="astat-card reveal">
+    <div class="astat"><div class="astat-n">30+</div><div class="astat-l">Unique VR Experiences</div></div><div class="astat-div"></div>
+    <div class="astat"><div class="astat-n">∞</div><div class="astat-l">Adventures Awaiting</div></div><div class="astat-div"></div>
+    <div class="astat"><div class="astat-n">2–6</div><div class="astat-l">Players Per Arena</div></div><div class="astat-div"></div>
+    <div class="astat" style="margin-bottom:0"><div class="astat-n">3</div><div class="astat-l">Arenas Available</div></div>
+    <div class="astat-div"></div>
+    <div class="astat" style="margin-bottom:0"><div class="astat-n">1</div><div class="astat-l">Escape Room</div></div>
+  </div>
+  <div class="about-copy">
+    <h2 class="reveal">Forged on the<br>Mother Road</h2>
+    <p class="reveal d1">Raven & Dragon was born from a singular obsession: create the most immersive, most unforgettable VR experience possible. Every detail — the hardware, the games, the atmosphere — has been crafted to pull you out of the ordinary.</p>
+    <p class="reveal d2">Whether you're battling interdimensional creatures, escaping a cursed dungeon, or going head-to-head with your crew in a gladiatorial arena — this is where your story becomes legend.</p>
+    <p class="reveal d3">Located on historic Route 66 in Williams, Arizona, we blend frontier spirit with cutting-edge technology to create something the world has never seen.</p>
+    <a href="booking.html" class="btn-w reveal d4" style="margin-top:12px;">Explore Experiences ↗</a>
+  </div>
+</div>
+
+<div class="values">
+  <div class="sec-head reveal"><span class="eyebrow">What We Stand For</span><h2 class="sec-title">Built Different</h2></div>
+  <div class="values-grid">
+    <div class="val-card reveal"><span class="val-icon">🐉</span><div class="val-title">Immersion First</div><div class="val-desc">Every detail — lighting, sound, haptics — is tuned to erase the line between real and virtual.</div></div>
+    <div class="val-card reveal d1"><span class="val-icon">⚔️</span><div class="val-title">For Everyone</div><div class="val-desc">From first-timers to hardcore gamers, our guides calibrate every session to your skill level.</div></div>
+    <div class="val-card reveal d2"><span class="val-icon">🪶</span><div class="val-title">Community Driven</div><div class="val-desc">We rotate 30+ games monthly based on what our community loves. Your vote shapes the arena.</div></div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-main">
+    <div class="footer-brand">
+      <a href="index.html" class="footer-brand-name">Raven &amp; Dragon</a>
+      <p>Free-roam VR arena and immersive escape rooms on Route 66 in Williams, Arizona.</p>
+    </div>
+    <div class="footer-logo-wrap">
+      <img src="logo.png" alt="Raven &amp; Dragon" class="footer-logo">
+    </div>
+    <div class="footer-nav">
+      <div class="fcol"><h4>Navigate</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="booking.html">Booking</a></li><li><a href="groups.html">Groups</a></li><li><a href="faq.html">FAQ</a></li></ul></div>
+      <div class="fcol"><h4>Get in Touch</h4><ul><li><a href="https://maps.google.com/?q=518+E+Route+66+Williams+AZ+86046" target="_blank">518 E Route 66, Williams, AZ 86046</a></li><li><a href="tel:+17144147233">(714) 414-7233</a></li><li><a href="mailto:ravenanddragonllc@gmail.com">ravenanddragonllc@gmail.com</a></li><li><a href="https://www.instagram.com/ravenanddragonvr/" target="_blank">Instagram</a></li><li><a href="http://facebook.com/profile.php?id=61564699002867" target="_blank">Facebook</a></li></ul></div>
+    </div>
+  </div>
+  <div class="footer-bot"><p>&copy; 2025 Raven &amp; Dragon VR Arena &middot; &#127894; Military &amp; first responder discounts</p><p>Forged on Route 66</p></div>
+</footer>
+<script src="shared.js"></script>
+</body></html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Group Events — Raven & Dragon</title><link rel="stylesheet" href="styles.css">
+<style>
+.groups-layout{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start;padding:0 48px 120px;}
+.groups-info h2{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:300;margin-bottom:16px;line-height:1.15;}
+.groups-info p{font-size:.88rem;color:var(--dim);line-height:1.82;margin-bottom:24px;}
+.gperks{list-style:none;}
+.gperks li{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:.84rem;color:var(--dim);}
+.gpd{color:var(--purple-hi);flex-shrink:0;margin-top:3px;font-size:.4rem;}
+.gform{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:40px;backdrop-filter:blur(14px);}
+.gform h3{font-family:'Cinzel',serif;font-size:.9rem;letter-spacing:.1em;margin-bottom:24px;color:#fff;}
+.fg{margin-bottom:14px;}
+.fg label{display:block;font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);margin-bottom:6px;font-family:'Cinzel',serif;}
+.fg input,.fg select,.fg textarea{width:100%;padding:10px 13px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.07);border-radius:6px;color:var(--text);font-family:'Raleway',sans-serif;font-size:.84rem;outline:none;transition:border-color .25s;-webkit-appearance:none;}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:rgba(168,85,247,.4);box-shadow:0 0 0 3px rgba(124,58,237,.08);}
+.fg select option{background:#0d0525;}
+.fg textarea{resize:vertical;min-height:80px;}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.sub-btn{width:100%;padding:13px;border-radius:8px;margin-top:6px;background:rgba(124,58,237,.2);border:1px solid rgba(168,85,247,.35);color:rgba(215,175,255,.95);font-family:'Raleway',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .3s;box-shadow:0 0 22px rgba(124,58,237,.1);}
+.sub-btn:hover{background:rgba(124,58,237,.35);box-shadow:0 0 44px rgba(124,58,237,.25);transform:translateY(-1px);}
+.form-note{text-align:center;margin-top:8px;font-size:.65rem;color:rgba(255,255,255,.2);}
+.form-note a{color:rgba(168,85,247,.5);text-decoration:none;}
+.anote{font-size:.75rem;color:var(--dim);margin-bottom:20px;padding:10px 14px;background:rgba(124,58,237,.06);border-left:2px solid rgba(168,85,247,.3);border-radius:0 4px 4px 0;line-height:1.6;}
+
+@media(max-width:900px){
+  .groups-layout{grid-template-columns:1fr;padding:0 24px 80px;gap:40px;}
+  .fg-row{grid-template-columns:1fr;}
+}
+</style></head><body>
+<div id="cur"></div><div id="curR"></div>
+<nav id="nav"><a href="index.html" class="nav-mark">R</a><ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="booking.html">Booking</a></li><li><a href="groups.html" class="active">Groups</a></li><li><a href="faq.html">FAQ</a></li></ul><a href="booking.html" class="nav-pill">Book Now ↗</a><button class="burger" id="burger"><span></span><span></span><span></span></button></nav>
+<div class="mob-menu" id="mobMenu"><a href="index.html">Home</a><a href="about.html">About</a><a href="booking.html">Booking</a><a href="groups.html">Groups</a><a href="faq.html">FAQ</a>
+  <a href="booking.html" class="mob-cta">Book Now ↗</a><div class="mob-menu-foot"><span>Route 66 · Williams, AZ</span><a href="tel:+17144147233">(714) 414-7233</a></div></div>
+
+<div class="page-hero">
+  <span class="eyebrow reveal">Group Events</span>
+  <h1 class="sec-title reveal d1">Rally Your Realm</h1>
+  <p class="sec-sub reveal d2">Corporate team building · Birthday parties · Bachelor events — the arena scales to your crew.</p>
+  <div class="reveal d3" style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap;justify-content:center;">
+    <span style="font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;padding:5px 14px;border-radius:100px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.55);">🏢 Corporate</span>
+    <span style="font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;padding:5px 14px;border-radius:100px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.55);">🎂 Birthdays</span>
+    <span style="font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;padding:5px 14px;border-radius:100px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.55);">🤝 Team Building</span>
+    <span style="font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;padding:5px 14px;border-radius:100px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.55);">🎉 Bachelor Parties</span>
+    <span style="font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;padding:5px 14px;border-radius:100px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.55);">🎓 School Groups</span>
+  </div>
+</div>
+
+<div class="groups-layout">
+  <div class="groups-info">
+    <h2 class="reveal">The Ultimate<br><span style="color:var(--purple-hi)">Group Experience</span></h2>
+    <p class="reveal d1">From 5 to 50 — we scale to your crew. Whether it's a <strong style="color:#fff;">corporate team-building day</strong>, a <strong style="color:#fff;">birthday celebration</strong>, or a <strong style="color:#fff;">bachelor party</strong>, we create custom packages with dedicated hosts.</p>
+    <ul class="gperks reveal d2">
+      <li><span class="gpd">◆</span>Private arena buyout for full exclusivity</li>
+      <li><span class="gpd">◆</span>Custom themed events — corporate, birthdays, bachelor</li>
+      <li><span class="gpd">◆</span>Team building formats with competitive scoring</li>
+      <li><span class="gpd">◆</span>Dedicated event host & VR technicians</li>
+      <li><span class="gpd">◆</span>Catering coordination & party space + kitchenette</li>
+      <li><span class="gpd">◆</span>Tournament formats with trophies & prizes</li>
+      <li><span class="gpd">◆</span>Group photos & highlight reel</li>
+      <li><span class="gpd">◆</span>Flexible rescheduling & deposit via Square</li>
+      <li><span class="gpd" style="color:var(--green);">◆</span><span style="color:rgba(80,200,120,.75);">🎖 Military, veteran & first responder discounts available</span></li>
+    </ul>
+  </div>
+  <div class="gform reveal d1">
+    <h3>Request Group Booking</h3>
+    <p class="anote">We'll confirm availability within 24 hours. Deposit collected via Square on confirmation.</p>
+    <div class="fg-row"><div class="fg"><label>First Name</label><input type="text" placeholder="Aria"></div><div class="fg"><label>Last Name</label><input type="text" placeholder="Storm"></div></div>
+    <div class="fg"><label>Email</label><input type="email" placeholder="you@realm.com"></div>
+    <div class="fg"><label>Phone</label><input type="tel" placeholder="(555) 000-0000"></div>
+    <div class="fg-row">
+      <div class="fg"><label>Group Size</label><select><option>5–10 warriors</option><option>11–20 warriors</option><option>21–35 warriors</option><option>36–50 warriors</option></select></div>
+      <div class="fg"><label>Event Type</label><select><option>Birthday</option><option>Corporate Team</option><option>Bachelor / Bachelorette</option><option>School / Youth</option><option>Other</option></select></div>
+    </div>
+    <div class="fg"><label>Preferred Date</label><input type="date"></div>
+    <div class="fg"><label>Tell us about your event</label><textarea placeholder="Any special requests, themes, or questions…"></textarea></div>
+    <button class="sub-btn" onclick="window.open('https://squareup.com/YOUR-LINK','_blank')">Submit & Pay Deposit via Square ↗</button>
+    <p class="form-note">Secured by <a href="https://squareup.com" target="_blank">Square</a></p>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-main">
+    <div class="footer-brand">
+      <a href="index.html" class="footer-brand-name">Raven &amp; Dragon</a>
+      <p>Free-roam VR arena and immersive escape rooms on Route 66 in Williams, Arizona.</p>
+    </div>
+    <div class="footer-logo-wrap">
+      <img src="logo.png" alt="Raven &amp; Dragon" class="footer-logo">
+    </div>
+    <div class="footer-nav">
+      <div class="fcol"><h4>Navigate</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="booking.html">Booking</a></li><li><a href="groups.html">Groups</a></li><li><a href="faq.html">FAQ</a></li></ul></div>
+      <div class="fcol"><h4>Get in Touch</h4><ul><li><a href="https://maps.google.com/?q=518+E+Route+66+Williams+AZ+86046" target="_blank">518 E Route 66, Williams, AZ 86046</a></li><li><a href="tel:+17144147233">(714) 414-7233</a></li><li><a href="mailto:ravenanddragonllc@gmail.com">ravenanddragonllc@gmail.com</a></li><li><a href="https://www.instagram.com/ravenanddragonvr/" target="_blank">Instagram</a></li><li><a href="http://facebook.com/profile.php?id=61564699002867" target="_blank">Facebook</a></li></ul></div>
+    </div>
+  </div>
+  <div class="footer-bot"><p>&copy; 2025 Raven &amp; Dragon VR Arena &middot; &#127894; Military &amp; first responder discounts</p><p>Forged on Route 66</p></div>
+</footer>
+<script src="shared.js"></script>
+</body></html>
