@@ -8,8 +8,8 @@
 
    How to enable:
      1. Create a Google Sheet with these column headers in row 1:
-          A: name | B: desc | C: cat | D: players |
-          E: diff | F: badge | G: badgeLabel | H: img
+          A: Name | B: Desc | C: Cat | D: Players |
+          E: Difficulty | F: Badge | G: BadgeLabel | H: Image
      2. File → Share → Publish to web → choose Sheet1, format CSV.
      3. Copy the published .csv URL and paste it into SHEET_CSV_URL
         below.
@@ -18,21 +18,33 @@
 
    COLUMN GUIDE
    ──────────────────────────────────────────────────────────────
-     name        Game title              e.g. "Dragon's Lair VR"
-     desc        Short description shown in the modal
-     cat         action | horror | adventure | multiplayer | escape
-     players     Player range            e.g. "1–4" or "2–6"
-     diff        Difficulty 1–5 (number only)
-     badge       hot | new | best | family | pick   (or blank)
-     badgeLabel  Text shown on the card  e.g. "🔥 Popular"
-     img         Direct image URL        (optional)
+     Name         Game title              e.g. "Dragon's Lair VR"
+     Desc         Short description shown in the modal
+     Cat          action | horror | adventure | multiplayer | escape
+     Players      Player range            e.g. "1–4" or "2–6"
+     Difficulty   1–5 (number only)
+     Badge        hot | new | best | family | pick   (or blank)
+     BadgeLabel   Text shown on the card  e.g. "🔥 Popular"
+     Image        Image URL — see below   (optional)
+
+   IMAGE COLUMN
+   ──────────────────────────────────────────────────────────────
+   The Image column accepts EITHER:
+     • A Google Drive share link (recommended for the owner):
+       https://drive.google.com/file/d/FILE_ID/view?usp=sharing
+       The image must be in a folder shared as "Anyone with the
+       link → Viewer" so the website can load it.
+     • A direct image URL (https://example.com/image.jpg)
+
+   Header column names are case-insensitive — "Name", "name",
+   and "NAME" all work the same.
 
    If SHEET_CSV_URL is blank or fails to load, the FALLBACK list
    below is used.
    ════════════════════════════════════════════════════════════════ */
 
 // ──── Paste your published Google Sheet CSV URL here ────
-const SHEET_CSV_URL = '';
+const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRbMHdbnqjHKfakK1JovRq5vTPeNhXGcJt68zVVNymLKs_DcDtRLTQJVIST-Jumf4wBIYDdB--SUrk7/pub?gid=0&single=true&output=csv';
 // Example: 'https://docs.google.com/spreadsheets/d/e/2PACX-xxxxx/pub?gid=0&single=true&output=csv'
 
 
@@ -78,11 +90,39 @@ let page   = 1;
 let filter = 'all';
 
 
+/* ─── Convert a Google Drive share link into a direct image URL ───
+   Drive share links look like:
+     https://drive.google.com/file/d/FILE_ID/view?usp=sharing
+     https://drive.google.com/open?id=FILE_ID
+   These can't be used directly as <img src> — they're page URLs.
+   The /thumbnail endpoint serves the actual image bytes, so we
+   rewrite Drive links to that.
+
+   Non-Drive URLs (Imgur, direct .jpg/.png links, etc.) pass
+   through unchanged.
+*/
+function resolveImageUrl(url) {
+  if (!url) return '';
+  const trimmed = url.trim();
+  if (!trimmed.includes('drive.google.com')) return trimmed;
+
+  // Try to pull the file ID out of either share-link format
+  const match =
+    trimmed.match(/\/file\/d\/([a-zA-Z0-9_-]+)/) ||
+    trimmed.match(/[?&]id=([a-zA-Z0-9_-]+)/);
+
+  if (!match) return trimmed; // unknown Drive format — leave it alone
+  return `https://drive.google.com/thumbnail?id=${match[1]}&sz=w800`;
+}
+
+
 /* ─── CSV parser — handles commas inside quoted fields ─── */
 function parseCSV(csv) {
   const lines = csv.split('\n').filter(l => l.trim());
   if (lines.length < 2) return [];
 
+  // Lowercase + strip non-letters from headers so "Name", "name",
+  // "NAME", and "First Name" all normalize predictably.
   const headers = lines[0]
     .split(',')
     .map(h => h.trim().toLowerCase().replace(/[^a-z]/g, ''));
@@ -104,14 +144,22 @@ function parseCSV(csv) {
     }
     vals.push(cur.trim());
 
-    const obj = {};
-    headers.forEach((h, i) => { obj[h] = vals[i] || ''; });
+    const raw = {};
+    headers.forEach((h, i) => { raw[h] = vals[i] || ''; });
 
-    obj.diff       = parseInt(obj.diff) || 2;
-    obj.badge      = obj.badge || '';
-    obj.badgeLabel = obj.badgelabel || '';
-    obj.img        = obj.img || '';
-    return obj;
+    // Map sheet column names → internal property names.
+    // Sheet uses friendlier names like "Difficulty" and "Image",
+    // but the rest of the code uses "diff" and "img".
+    return {
+      name:       raw.name       || '',
+      desc:       raw.desc       || raw.description || '',
+      cat:        raw.cat        || raw.category    || '',
+      players:    raw.players    || '',
+      diff:       parseInt(raw.difficulty || raw.diff) || 2,
+      badge:      raw.badge      || '',
+      badgeLabel: raw.badgelabel || '',
+      img:        resolveImageUrl(raw.image || raw.img),
+    };
   }).filter(g => g.name);
 }
 
@@ -154,8 +202,11 @@ function renderGames() {
   const slice = list.slice((page - 1) * PER_PAGE, page * PER_PAGE);
   document.getElementById('gamesGrid').innerHTML = slice.map((g, i) => {
     const idx = games.indexOf(g);
+    // Fallback gracefully: if the image fails to load, hide it so the
+    // letter underneath shows through. This protects against broken
+    // Drive links, deleted images, etc.
     const imgTag = g.img
-      ? `<img src="${g.img}" alt="${g.name}">`
+      ? `<img src="${g.img}" alt="${g.name}" onerror="this.style.display='none'">`
       : '';
     const letterClass = g.img
       ? 'gcard-letter gcard-letter--over-img'
