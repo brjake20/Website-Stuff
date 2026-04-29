@@ -1,155 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Raven & Dragon — VR Arena & Escape Rooms on Route 66</title>
-<link rel="stylesheet" href="styles.css">
-<style>
-/* ── HERO ── */
-#hero{position:relative;width:100vw;height:100vh;overflow:hidden;display:flex;align-items:center;justify-content:center;}
-.hero-video{position:absolute;inset:0;overflow:hidden;background:#000;}
-.hero-video video{width:100%;height:100%;object-fit:cover;}
-.hero-vig{position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(to bottom,transparent 60%,#000 100%);}
-.hero-ui{position:relative;z-index:10;display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 28px;}
-.hero-badge{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.08);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.14);border-radius:100px;padding:7px 16px 7px 10px;margin-bottom:32px;font-size:.75rem;letter-spacing:.05em;color:rgba(255,255,255,.82);animation:fadeUp 1s .3s both;}
-.badge-pill{background:var(--green);color:#000;border-radius:100px;padding:2px 10px;font-size:.6rem;font-weight:700;letter-spacing:.08em;}
-.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(4rem,12vw,10.5rem);font-weight:300;font-style:italic;line-height:.88;color:#fff;margin-bottom:36px;animation:fadeUp 1s .5s both;text-shadow:0 2px 60px rgba(0,0,0,.5),0 0 120px rgba(124,58,237,.2);}
-.hero-sub{font-size:clamp(.92rem,1.6vw,1.05rem);font-weight:400;line-height:1.75;color:rgba(255,255,255,.78);max-width:480px;margin-bottom:24px;animation:fadeUp 1s .7s both;text-shadow:0 1px 20px rgba(0,0,0,.6);}
-.hero-sub strong{color:#fff;font-weight:600;}
-.hero-btns{display:flex;gap:12px;align-items:center;flex-wrap:wrap;justify-content:center;animation:fadeUp 1s .9s both;}
-.hero-strip{position:absolute;bottom:52px;left:50%;transform:translateX(-50%);z-index:10;display:flex;flex-direction:column;align-items:center;gap:12px;animation:fadeUp 1s 1.2s both;white-space:nowrap;}
-.strip-label{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.35);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:100px;padding:4px 14px;}
-.strip-names{display:flex;gap:28px;align-items:center;}
-.strip-names span{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:300;font-style:italic;color:rgba(255,255,255,.4);}
-.strip-div{color:rgba(255,255,255,.12);}
-.scroll-cue{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);z-index:10;width:1px;height:42px;background:linear-gradient(to bottom,rgba(255,255,255,.45),transparent);animation:scPulse 2.2s ease-in-out infinite;}
-@keyframes scPulse{0%,100%{opacity:.22;transform:scaleY(.7);}50%{opacity:1;transform:scaleY(1);}}
-/* Discount badge */
-.hero-discount{animation:fadeUp 1s 1s both;margin-top:14px;font-size:.68rem;letter-spacing:.08em;color:rgba(80,200,120,.7);display:flex;align-items:center;gap:6px;}
-
-/* ── TOP 5 CAROUSEL ── */
-#featured{padding:68px 0 0;background:#000;position:relative;overflow:hidden;}
-#featured::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(to bottom,#000 0%,transparent 6%);}
-.feat-head{display:flex;align-items:center;justify-content:space-between;max-width:1400px;margin:0 auto;padding:0 48px 22px;position:relative;z-index:1;}
-.feat-head-left{display:flex;align-items:baseline;gap:12px;}
-.feat-title{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.3rem,2.5vw,1.8rem);font-weight:300;color:#fff;}
-.feat-badge{font-size:.52rem;letter-spacing:.16em;text-transform:uppercase;color:var(--green);font-family:'Cinzel',serif;padding:3px 9px;border-radius:100px;border:1px solid rgba(80,200,120,.2);background:rgba(80,200,120,.06);}
-.feat-arrows{display:flex;gap:6px;}
-.feat-arrow{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:.7rem;color:rgba(255,255,255,.35);cursor:pointer;transition:all .3s;}
-.feat-arrow:hover{border-color:rgba(80,200,120,.3);color:var(--green);}
-.feat-track-wrap{position:relative;z-index:1;max-width:1400px;margin:0 auto;padding:0 48px;}
-.feat-track{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;padding:4px 0;scrollbar-width:none;}
-.feat-track::-webkit-scrollbar{display:none;}
-.feat-card{flex:0 0 calc(28% - 9px);scroll-snap-align:start;border-radius:10px;overflow:hidden;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.06);transition:all .35s cubic-bezier(.16,1,.3,1);cursor:pointer;text-decoration:none;color:inherit;display:block;}
-.feat-card:hover{transform:translateY(-5px);border-color:rgba(80,200,120,.25);box-shadow:0 16px 40px rgba(0,0,0,.5),0 0 30px rgba(80,200,120,.05);}
-.feat-cover{width:100%;aspect-ratio:4/3;position:relative;overflow:hidden;background:linear-gradient(145deg,#0c0425,#1a0840,#0e0530);}
-.feat-cover-inner{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(145deg,rgba(124,58,237,.1),rgba(20,8,50,.25),rgba(80,200,120,.04));}
-.feat-letter{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:3.5rem;font-weight:300;background:linear-gradient(180deg,rgba(255,255,255,.18),rgba(168,85,247,.12));-webkit-background-clip:text;-webkit-text-fill-color:transparent;user-select:none;}
-.feat-cover::after{content:'';position:absolute;bottom:0;left:0;right:0;height:45%;background:linear-gradient(to top,rgba(0,0,0,.6),transparent);pointer-events:none;}
-.feat-rank{position:absolute;top:8px;left:8px;z-index:2;width:24px;height:24px;border-radius:50%;background:rgba(0,0,0,.5);border:1px solid rgba(80,200,120,.25);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-size:.55rem;font-weight:600;color:var(--green);}
-.feat-cat{position:absolute;bottom:8px;left:8px;z-index:2;font-family:'Raleway',sans-serif;font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:100px;background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.6);backdrop-filter:blur(4px);}
-.feat-info{padding:10px 12px 12px;}
-.feat-name{font-family:'Cinzel',serif;font-size:.75rem;font-weight:600;letter-spacing:.03em;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-
-/* ── CASTLE / EXPERIENCES TEASER ── */
-#castle{position:relative;width:100vw;height:75vh;min-height:520px;overflow:hidden;display:flex;align-items:center;justify-content:center;}
-.castle-video{position:absolute;inset:0;overflow:hidden;background:#000;}
-.castle-video video{width:100%;height:100%;object-fit:cover;}
-.castle-vig{position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(to bottom,#000 0%,transparent 18%,transparent 62%,#000 100%);}
-.story-ui{position:relative;z-index:10;display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 32px;max-width:780px;opacity:0;transform:translateY(40px);transition:opacity 1.2s cubic-bezier(.16,1,.3,1),transform 1.2s cubic-bezier(.16,1,.3,1);}
-.story-ui.in{opacity:1;transform:translateY(0);}
-.story-title{font-family:'Cormorant Garamond',serif;font-size:clamp(3.2rem,9vw,7.5rem);font-weight:300;font-style:italic;line-height:.93;color:#fff;margin-bottom:16px;text-shadow:0 2px 40px rgba(0,0,0,.6);}
-.fire-word{color:var(--fire);text-shadow:0 0 40px rgba(255,85,0,.45);}
-.green-word{color:var(--green);text-shadow:0 0 40px rgba(80,200,120,.4);}
-.story-body{font-size:.95rem;font-weight:400;line-height:1.8;color:rgba(255,255,255,.7);max-width:440px;margin-bottom:24px;text-shadow:0 1px 16px rgba(0,0,0,.5);}
-.story-body strong{color:#fff;font-weight:600;}
-/* Two-up boxes */
-.story-duo{display:flex;gap:14px;margin-bottom:28px;flex-wrap:wrap;justify-content:center;}
-.story-box{background:rgba(255,255,255,.06);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:16px 22px;text-align:center;min-width:160px;transition:border-color .3s;}
-.story-box:hover{border-color:rgba(168,85,247,.3);}
-.story-box-icon{font-size:1.5rem;margin-bottom:6px;display:block;}
-.story-box-title{font-family:'Cinzel',serif;font-size:.88rem;font-weight:600;color:#fff;letter-spacing:.06em;margin-bottom:4px;}
-.story-box-sub{font-size:.72rem;color:var(--dim);}
-
-/* ── LOCATION ── */
-#location{padding:56px 48px 80px;background:#000;position:relative;overflow:hidden;}
-#location::before{content:'';position:absolute;inset:0;pointer-events:none;opacity:.02;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Ccircle cx='60' cy='60' r='40' fill='none' stroke='%2350c878' stroke-width='1'/%3E%3Ccircle cx='60' cy='60' r='28' fill='none' stroke='%2350c878' stroke-width='.5'/%3E%3Cline x1='60' y1='18' x2='60' y2='0' stroke='%2350c878' stroke-width='1'/%3E%3Cline x1='60' y1='120' x2='60' y2='102' stroke='%2350c878' stroke-width='1'/%3E%3Cline x1='18' y1='60' x2='0' y2='60' stroke='%2350c878' stroke-width='1'/%3E%3Cline x1='120' y1='60' x2='102' y2='60' stroke='%2350c878' stroke-width='1'/%3E%3C/svg%3E");}
-#location::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(to top,#000 0%,transparent 8%);}
-.loc-head{max-width:1400px;margin:0 auto;padding:0 0 18px;display:flex;align-items:center;gap:14px;position:relative;z-index:1;}
-.loc-head h3{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.5rem,2.8vw,2rem);font-weight:400;color:#fff;white-space:nowrap;}
-.loc-tag{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(80,200,120,.6);font-family:'Cinzel',serif;padding:4px 12px;border-radius:100px;border:1px solid rgba(80,200,120,.18);background:rgba(80,200,120,.05);white-space:nowrap;}
-.loc-head::after{content:'';flex:1;height:1px;background:linear-gradient(to right,rgba(80,200,120,.15),transparent);}
-.loc-layout{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1.3fr;gap:20px;align-items:stretch;position:relative;z-index:1;}
-.loc-info{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-content:start;}
-.loc-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:8px;padding:16px 14px;display:flex;gap:10px;align-items:flex-start;transition:border-color .3s;}
-.loc-card:hover{border-color:rgba(80,200,120,.2);}
-.loc-icon-wrap{width:30px;height:30px;flex-shrink:0;border-radius:50%;background:rgba(80,200,120,.06);border:1px solid rgba(80,200,120,.12);display:flex;align-items:center;justify-content:center;position:relative;}
-.loc-icon-wrap::before{content:'';position:absolute;inset:-3px;border-radius:50%;border:1px dashed rgba(80,200,120,.08);}
-.loc-icon{font-size:.7rem;}
-.loc-label{font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--green);margin-bottom:3px;display:block;}
-.loc-value{font-size:.88rem;font-weight:400;color:rgba(255,255,255,.85);line-height:1.55;}
-.loc-value a{color:var(--purple-hi);text-decoration:none;transition:color .25s;}
-.loc-value a:hover{color:#fff;}
-.loc-hours-row{display:flex;justify-content:space-between;align-items:center;margin-top:1px;}
-.loc-day{font-size:.82rem;color:rgba(255,255,255,.5);font-weight:400;}
-.loc-time{font-size:.82rem;color:rgba(255,255,255,.82);font-weight:500;}
-.loc-map-wrap{border-radius:10px;overflow:hidden;border:1px solid rgba(80,200,120,.12);position:relative;background:#0a0510;min-height:260px;}
-.loc-map-wrap::before{content:'';position:absolute;inset:0;z-index:2;pointer-events:none;border-radius:10px;box-shadow:inset 0 0 40px rgba(0,0,0,.4);}
-.loc-map-wrap iframe{width:100%;height:100%;min-height:260px;display:block;filter:saturate(.25) brightness(.65) contrast(1.1);transition:filter .5s;}
-.loc-map-wrap:hover iframe{filter:saturate(.45) brightness(.78) contrast(1.05);}
-.loc-corner{position:absolute;width:18px;height:18px;z-index:3;pointer-events:none;}
-.loc-corner::before,.loc-corner::after{content:'';position:absolute;background:rgba(80,200,120,.22);}
-.loc-corner-tl{top:5px;left:5px;}.loc-corner-tl::before{width:12px;height:1px;}.loc-corner-tl::after{width:1px;height:12px;}
-.loc-corner-tr{top:5px;right:5px;}.loc-corner-tr::before{width:12px;height:1px;top:0;right:0;}.loc-corner-tr::after{width:1px;height:12px;top:0;right:0;}
-.loc-corner-bl{bottom:5px;left:5px;}.loc-corner-bl::before{width:12px;height:1px;bottom:0;}.loc-corner-bl::after{width:1px;height:12px;bottom:0;}
-.loc-corner-br{bottom:5px;right:5px;}.loc-corner-br::before{width:12px;height:1px;bottom:0;right:0;}.loc-corner-br::after{width:1px;height:12px;bottom:0;right:0;}
-/* Military/first responder banner */
-.discount-strip{max-width:1400px;margin:14px auto 0;padding:0;position:relative;z-index:1;display:flex;justify-content:center;}
-.discount-badge{display:inline-flex;align-items:center;gap:8px;font-size:.68rem;letter-spacing:.06em;color:rgba(80,200,120,.65);background:rgba(80,200,120,.05);border:1px solid rgba(80,200,120,.12);border-radius:100px;padding:6px 18px;}
-
-@media(max-width:900px){
-  .feat-card{flex:0 0 calc(48% - 6px);}
-  .feat-track-wrap,.feat-head{padding-left:20px;padding-right:20px;}
-  #location{padding:36px 20px 60px;}
-  .loc-layout{grid-template-columns:1fr;gap:14px;}
-  .loc-info{grid-template-columns:1fr;}
-  .loc-head{padding-left:0;padding-right:0;}
-  #castle{height:auto;min-height:auto;padding:80px 0;}
-  .story-duo{flex-direction:column;align-items:center;}
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raven & Dragon — VR Arena & Escape Rooms on Route 66</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div id="cur"></div>
-<div id="curR"></div>
 
-<nav id="nav">
-  <a href="index.html" class="nav-mark">R</a>
-  <ul class="nav-links">
-    <li><a href="index.html" class="active">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="booking.html">Booking</a></li>
-    <li><a href="groups.html">Groups</a></li>
-    <li><a href="faq.html">FAQ</a></li>
-  </ul>
-  <a href="booking.html" class="nav-pill">Book Now ↗</a>
-  <button class="burger" id="burger"><span></span><span></span><span></span></button>
-</nav>
-<div class="mob-menu" id="mobMenu">
-  <a href="index.html" class="active">Home</a>
-  <a href="about.html">About</a>
-  <a href="booking.html">Booking</a>
-  <a href="groups.html">Groups</a>
-  <a href="faq.html">FAQ</a>
-  <a href="booking.html" class="mob-cta">Book Now ↗</a>
-  <div class="mob-menu-foot">
-    <span>Route 66 · Williams, AZ</span>
-    <a href="tel:+17144147233">(714) 414-7233</a>
-  </div>
-</div>
+<!-- Cursor + nav + footer are injected by shared.js. Set window.PAGE
+     so the active nav link is highlighted. -->
+<!-- Cursor + nav + footer are injected by shared.js. Set window.PAGE
+     so the active nav link is highlighted. -->
+<script>window.PAGE = 'home';</script>
 
-<!-- HERO -->
+
+<!-- ─── HERO ─────────────────────────────────────────────────── -->
 <section id="hero">
   <div class="hero-video">
     <video autoplay muted loop playsinline disablepictureinpicture>
@@ -157,17 +23,23 @@
     </video>
   </div>
   <div class="hero-vig"></div>
+
   <div class="hero-ui">
     <h1 class="hero-title">Raven &amp;<br>Dragon</h1>
-    <p class="hero-sub"><strong>Free-roam VR arena</strong> and <strong>immersive escape rooms</strong> on historic Route 66 in Williams, Arizona.</p>
+    <p class="hero-sub">
+      <strong>Free-roam VR arena</strong> and <strong>immersive escape rooms</strong>
+      on historic Route 66 in Williams, Arizona.
+    </p>
     <div class="hero-btns">
       <a href="booking.html" class="btn-w">Explore Experiences ↗</a>
     </div>
   </div>
+
   <div class="scroll-cue"></div>
 </section>
 
-<!-- TOP 5 CAROUSEL -->
+
+<!-- ─── TOP 5 CAROUSEL (rendered by home.js) ─────────────────── -->
 <section id="featured">
   <div class="feat-head">
     <div class="feat-head-left">
@@ -175,8 +47,8 @@
       <span class="feat-badge">Top 5</span>
     </div>
     <div class="feat-arrows">
-      <button class="feat-arrow" id="featPrev">←</button>
-      <button class="feat-arrow" id="featNext">→</button>
+      <button class="feat-arrow" id="featPrev" aria-label="Previous">←</button>
+      <button class="feat-arrow" id="featNext" aria-label="Next">→</button>
     </div>
   </div>
   <div class="feat-track-wrap">
@@ -184,7 +56,8 @@
   </div>
 </section>
 
-<!-- EXPERIENCES TEASER -->
+
+<!-- ─── EXPERIENCES TEASER (castle video) ────────────────────── -->
 <section id="castle">
   <div class="castle-video">
     <video autoplay muted loop playsinline disablepictureinpicture>
@@ -192,85 +65,111 @@
     </video>
   </div>
   <div class="castle-vig"></div>
+
   <div class="story-ui" id="castleUI">
     <h2 class="story-title">Two Ways to<br><span class="green-word">Enter</span></h2>
-    <p class="story-body">Choose your path — blast through <strong>30+ VR arena games</strong> or solve your way out of a <strong>full-room VR escape</strong>.</p>
+    <p class="story-body">
+      Choose your path — blast through <strong>30+ VR arena games</strong>
+      or solve your way out of a <strong>full-room VR escape</strong>.
+    </p>
+
     <div class="story-duo">
-      <a href="booking.html" class="story-box" style="text-decoration:none;">
+      <a href="booking.html" class="story-box">
         <span class="story-box-icon">🎮</span>
         <div class="story-box-title">VR Arena</div>
         <div class="story-box-sub">Action · Horror · Multiplayer</div>
       </a>
-      <a href="booking.html" class="story-box" style="text-decoration:none;">
+      <a href="booking.html" class="story-box">
         <span class="story-box-icon">🔐</span>
         <div class="story-box-title">Escape Rooms</div>
         <div class="story-box-sub">60-min immersive puzzles</div>
       </a>
     </div>
+
     <a href="booking.html" class="btn-w">See What's Playing ↗</a>
   </div>
 </section>
 
-<!-- LOCATION -->
+
+<!-- ─── LOCATION ─────────────────────────────────────────────── -->
 <section id="location">
   <div class="loc-head">
     <h3>Find the Arena</h3>
     <span class="loc-tag">⚙ Route 66 · Williams, AZ ⚙</span>
   </div>
+
   <div class="loc-layout">
     <div class="loc-info">
-      <div class="loc-card reveal"><div class="loc-icon-wrap"><span class="loc-icon">📍</span></div><div><span class="loc-label">Location</span><div class="loc-value">518 E Route 66<br>Williams, AZ 86046<br><a href="https://maps.google.com/?q=518+E+Route+66+Williams+AZ+86046" target="_blank">Get Directions ↗</a></div></div></div>
-      <div class="loc-card reveal d1"><div class="loc-icon-wrap"><span class="loc-icon">🕐</span></div><div><span class="loc-label">Hours</span><div class="loc-hours-row"><span class="loc-day">Mon, Thu–Sun</span><span class="loc-time">10 AM – 10 PM</span></div><div class="loc-hours-row"><span class="loc-day">Tue &amp; Wed</span><span class="loc-time" style="color:rgba(255,100,100,.65);">Closed</span></div></div></div>
-      <div class="loc-card reveal d2"><div class="loc-icon-wrap"><span class="loc-icon">✉</span></div><div><span class="loc-label">Email</span><div class="loc-value"><a href="mailto:ravenanddragonllc@gmail.com">ravenanddragonllc@gmail.com</a></div></div></div>
-      <div class="loc-card reveal d3"><div class="loc-icon-wrap"><span class="loc-icon">📞</span></div><div><span class="loc-label">Call Us</span><div class="loc-value"><a href="tel:+17144147233">(714) 414-7233</a></div></div></div>
+      <div class="loc-card reveal">
+        <div class="loc-icon-wrap"><span class="loc-icon">📍</span></div>
+        <div>
+          <span class="loc-label">Location</span>
+          <div class="loc-value">
+            518 E Route 66<br>
+            Williams, AZ 86046<br>
+            <a href="https://maps.google.com/?q=518+E+Route+66+Williams+AZ+86046" target="_blank" rel="noopener">Get Directions ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="loc-card reveal d1">
+        <div class="loc-icon-wrap"><span class="loc-icon">🕐</span></div>
+        <div>
+          <span class="loc-label">Hours</span>
+          <div class="loc-hours-row">
+            <span class="loc-day">Mon, Thu–Sun</span>
+            <span class="loc-time">10 AM – 10 PM</span>
+          </div>
+          <div class="loc-hours-row">
+            <span class="loc-day">Tue &amp; Wed</span>
+            <span class="loc-time loc-time--closed">Closed</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="loc-card reveal d2">
+        <div class="loc-icon-wrap"><span class="loc-icon">✉</span></div>
+        <div>
+          <span class="loc-label">Email</span>
+          <div class="loc-value">
+            <a href="mailto:ravenanddragonllc@gmail.com">ravenanddragonllc@gmail.com</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="loc-card reveal d3">
+        <div class="loc-icon-wrap"><span class="loc-icon">📞</span></div>
+        <div>
+          <span class="loc-label">Call Us</span>
+          <div class="loc-value">
+            <a href="tel:+17144147233">(714) 414-7233</a>
+          </div>
+        </div>
+      </div>
     </div>
+
     <div class="loc-map-wrap reveal d1">
-      <div class="loc-corner loc-corner-tl"></div><div class="loc-corner loc-corner-tr"></div>
-      <div class="loc-corner loc-corner-bl"></div><div class="loc-corner loc-corner-br"></div>
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3262.5!2d-112.1858!3d35.2517!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8732199c4aa8ae31%3A0xfae3fa83bae1ed8e!2s518%20E%20Route%2066%2C%20Williams%2C%20AZ%2086046!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Location"></iframe>
+      <div class="loc-corner loc-corner-tl"></div>
+      <div class="loc-corner loc-corner-tr"></div>
+      <div class="loc-corner loc-corner-bl"></div>
+      <div class="loc-corner loc-corner-br"></div>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3262.5!2d-112.1858!3d35.2517!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8732199c4aa8ae31%3A0xfae3fa83bae1ed8e!2s518%20E%20Route%2066%2C%20Williams%2C%20AZ%2086046!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Location"></iframe>
     </div>
   </div>
-  <div class="discount-strip"><span class="discount-badge">🎖 Military, veteran &amp; first responder discounts available — ask at check-in</span></div>
+
+  <div class="discount-strip">
+    <span class="discount-badge">🎖 Military, veteran &amp; first responder discounts available — ask at check-in</span>
+  </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-main">
-    <div class="footer-brand">
-      <a href="index.html" class="footer-brand-name">Raven &amp; Dragon</a>
-      <p>Free-roam VR arena and immersive escape rooms on Route 66 in Williams, Arizona.</p>
-    </div>
-    <div class="footer-logo-wrap">
-      <img src="logo.png" alt="Raven &amp; Dragon" class="footer-logo">
-    </div>
-    <div class="footer-nav">
-      <div class="fcol"><h4>Navigate</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="booking.html">Booking</a></li><li><a href="groups.html">Groups</a></li><li><a href="faq.html">FAQ</a></li></ul></div>
-      <div class="fcol"><h4>Get in Touch</h4><ul><li><a href="https://maps.google.com/?q=518+E+Route+66+Williams+AZ+86046" target="_blank">518 E Route 66, Williams, AZ 86046</a></li><li><a href="tel:+17144147233">(714) 414-7233</a></li><li><a href="mailto:ravenanddragonllc@gmail.com">ravenanddragonllc@gmail.com</a></li><li><a href="https://www.instagram.com/ravenanddragonvr/" target="_blank">Instagram</a></li><li><a href="http://facebook.com/profile.php?id=61564699002867" target="_blank">Facebook</a></li><li><a href="https://www.tiktok.com/@kaitlanddavis940?lang=en" target="_blank">TikTok</a></li></ul></div>
-    </div>
-  </div>
-  <div class="footer-bot"><p>&copy; 2025 Raven &amp; Dragon VR Arena &middot; &#127894; Military &amp; first responder discounts</p><p>Forged on Route 66</p></div>
-</footer>
 
+<!-- Scripts: shared first (defines nav + footer), then page-specific -->
 <script src="shared.js"></script>
-<script>
-/* TOP 5 */
-const TOP5=[
-  {name:"Dragon's Lair VR",cat:"arena",rank:1},
-  {name:"Battle Royale VR",cat:"arena",rank:2},
-  {name:"Raven's Curse",cat:"escape room",rank:3},
-  {name:"Cyber Arena",cat:"arena",rank:4},
-  {name:"The Haunting",cat:"escape room",rank:5}
-];
-const ft=document.getElementById('featTrack');
-ft.innerHTML=TOP5.map(g=>`
-  <a href="booking.html" class="feat-card">
-    <div class="feat-cover"><div class="feat-cover-inner"><span class="feat-letter">${g.name[0]}</span></div>
-      <span class="feat-rank">#${g.rank}</span><span class="feat-cat">${g.cat}</span>
-    </div>
-    <div class="feat-info"><div class="feat-name">${g.name}</div></div>
-  </a>`).join('');
-document.getElementById('featPrev').addEventListener('click',()=>{const c=ft.querySelector('.feat-card');if(c)ft.scrollBy({left:-(c.offsetWidth+12),behavior:'smooth'});});
-document.getElementById('featNext').addEventListener('click',()=>{const c=ft.querySelector('.feat-card');if(c)ft.scrollBy({left:c.offsetWidth+12,behavior:'smooth'});});
-</script>
+<script src="home.js"></script>
 </body>
 </html>
