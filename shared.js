@@ -60,3 +60,11 @@ document.querySelectorAll('video[preload="none"]').forEach(vid=>{
     });
   },{rootMargin:'400px'}).observe(vid);
 });
+
+/* ═══ SQUARE LINK HANDLER (replaces inline onclick) ═══ */
+document.querySelectorAll('[data-square-link]').forEach(btn=>{
+  btn.addEventListener('click',function(){
+    const url=this.getAttribute('data-square-link');
+    if(url&&url.startsWith('https://'))window.open(url,'_blank','noopener,noreferrer');
+  });
+});
