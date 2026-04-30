@@ -22,7 +22,6 @@ body{background:#000;color:var(--text);font-family:'Raleway',sans-serif;overflow
 /* ── NAV ── */
 nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:center;justify-content:center;padding:22px 48px;transition:all .5s;}
 nav.solid{background:rgba(0,0,0,.75);backdrop-filter:blur(28px) saturate(1.4);border-bottom:1px solid rgba(255,255,255,.06);padding:14px 48px;}
-.nav-mark{position:absolute;left:40px;top:50%;transform:translateY(-50%);width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-size:.68rem;color:var(--dim);text-decoration:none;}
 .nav-links{display:flex;list-style:none;gap:36px;align-items:center;}
 .nav-links a{font-size:.8rem;font-weight:400;letter-spacing:.06em;color:rgba(255,255,255,.65);text-decoration:none;transition:color .3s;position:relative;}
 .nav-links a:hover,.nav-links a.active{color:#fff;}
@@ -31,7 +30,7 @@ nav.solid{background:rgba(0,0,0,.75);backdrop-filter:blur(28px) saturate(1.4);bo
 .nav-pill:hover{background:var(--purple-hi);color:#fff;box-shadow:0 0 30px rgba(168,85,247,.4);}
 
 /* ── HAMBURGER (mobile) ── */
-.burger{display:none;position:absolute;right:40px;top:50%;transform:translateY(-50%);width:32px;height:32px;cursor:pointer;z-index:600;background:none;border:none;padding:0;}
+.burger{display:none;position:absolute;right:20px;top:50%;transform:translateY(-50%);width:32px;height:32px;cursor:pointer;z-index:600;background:none;border:none;padding:0;}
 .burger span{display:block;width:22px;height:1.5px;background:#fff;margin:5px auto;border-radius:2px;transition:all .4s cubic-bezier(.77,0,.18,1);}
 .burger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
 .burger.open span:nth-child(2){opacity:0;transform:scaleX(0);}
@@ -59,7 +58,6 @@ nav.solid{background:rgba(0,0,0,.75);backdrop-filter:blur(28px) saturate(1.4);bo
 @media(max-width:900px){
   .nav-links,.nav-pill{display:none;}
   .burger{display:block;}
-  .nav-mark{left:20px;}
   nav{padding:18px 20px;}
   nav.solid{padding:14px 20px;}
 }

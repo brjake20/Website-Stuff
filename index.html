@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Raven & Dragon — VR Arena & Escape Rooms on Route 66</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="styles.css">
 <style>
 /* ── HERO ── */
@@ -125,7 +127,6 @@
 <div id="curR"></div>
 
 <nav id="nav">
-  <a href="index.html" class="nav-mark">R</a>
   <ul class="nav-links">
     <li><a href="index.html" class="active">Home</a></li>
     <li><a href="about.html">About</a></li>
@@ -229,7 +230,7 @@
     <div class="loc-map-wrap reveal d1">
       <div class="loc-corner loc-corner-tl"></div><div class="loc-corner loc-corner-tr"></div>
       <div class="loc-corner loc-corner-bl"></div><div class="loc-corner loc-corner-br"></div>
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3262.5!2d-112.1858!3d35.2517!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8732199c4aa8ae31%3A0xfae3fa83bae1ed8e!2s518%20E%20Route%2066%2C%20Williams%2C%20AZ%2086046!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Location"></iframe>
+      <iframe data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3262.5!2d-112.1858!3d35.2517!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8732199c4aa8ae31%3A0xfae3fa83bae1ed8e!2s518%20E%20Route%2066%2C%20Williams%2C%20AZ%2086046!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" allowfullscreen="" loading="lazy" title="Raven and Dragon Location" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   </div>
   <div class="discount-strip"><span class="discount-badge">🎖 Military, veteran &amp; first responder discounts available — ask at check-in</span></div>
@@ -243,7 +244,7 @@
       <p>Free-roam VR arena and immersive escape rooms on Route 66 in Williams, Arizona.</p>
     </div>
     <div class="footer-logo-wrap">
-      <img src="logo.png" alt="Raven &amp; Dragon" class="footer-logo">
+      <picture><source srcset="logo.webp" type="image/webp"><img src="logo.png" alt="Raven &amp; Dragon" class="footer-logo" width="160" height="160" loading="lazy"></picture>
     </div>
     <div class="footer-nav">
       <div class="fcol"><h4>Navigate</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="booking.html">Booking</a></li><li><a href="groups.html">Groups</a></li><li><a href="faq.html">FAQ</a></li></ul></div>
@@ -253,7 +254,7 @@
   <div class="footer-bot"><p>&copy; 2025 Raven &amp; Dragon VR Arena &middot; &#127894; Military &amp; first responder discounts</p><p>Forged on Route 66</p></div>
 </footer>
 
-<script src="shared.js"></script>
+<script src="shared.js" defer></script>
 <script>
 /* TOP 5 */
 const TOP5=[

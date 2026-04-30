@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>About — Raven & Dragon</title><link rel="stylesheet" href="styles.css">
+<title>About — Raven & Dragon</title><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="styles.css">
 <style>
 .about-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;padding:0 48px 120px;}
 .astat-card{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:44px;backdrop-filter:blur(14px);position:relative;overflow:hidden;}
@@ -28,7 +30,6 @@
 </style></head><body>
 <div id="cur"></div><div id="curR"></div>
 <nav id="nav">
-  <a href="index.html" class="nav-mark">R</a>
   <ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="about.html" class="active">About</a></li><li><a href="booking.html">Booking</a></li><li><a href="groups.html">Groups</a></li><li><a href="faq.html">FAQ</a></li></ul>
   <a href="booking.html" class="nav-pill">Book Now ↗</a>
   <button class="burger" id="burger"><span></span><span></span><span></span></button>
@@ -76,7 +77,7 @@
       <p>Free-roam VR arena and immersive escape rooms on Route 66 in Williams, Arizona.</p>
     </div>
     <div class="footer-logo-wrap">
-      <img src="logo.png" alt="Raven &amp; Dragon" class="footer-logo">
+      <picture><source srcset="logo.webp" type="image/webp"><img src="logo.png" alt="Raven &amp; Dragon" class="footer-logo" width="160" height="160" loading="lazy"></picture>
     </div>
     <div class="footer-nav">
       <div class="fcol"><h4>Navigate</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="booking.html">Booking</a></li><li><a href="groups.html">Groups</a></li><li><a href="faq.html">FAQ</a></li></ul></div>
@@ -85,5 +86,5 @@
   </div>
   <div class="footer-bot"><p>&copy; 2025 Raven &amp; Dragon VR Arena &middot; &#127894; Military &amp; first responder discounts</p><p>Forged on Route 66</p></div>
 </footer>
-<script src="shared.js"></script>
+<script src="shared.js" defer></script>
 </body></html>

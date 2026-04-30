@@ -35,3 +35,15 @@ document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 document.querySelectorAll('.story-ui').forEach(el=>{
   new IntersectionObserver(e=>e.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');}),{threshold:.2}).observe(el);
 });
+
+/* ═══ LAZY-LOAD IFRAMES (Google Maps) ═══ */
+document.querySelectorAll('iframe[data-src]').forEach(iframe=>{
+  new IntersectionObserver((entries,observer)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        iframe.src=iframe.dataset.src;
+        observer.unobserve(iframe);
+      }
+    });
+  },{rootMargin:'200px'}).observe(iframe);
+});
