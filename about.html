@@ -2,7 +2,24 @@
 <html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>About — Raven & Dragon</title><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Raleway:wght@300;400;500;600&family=Cinzel:wght@400;600&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Raleway:wght@300;400;500;600&family=Cinzel:wght@400;600&display=swap"></noscript>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:#000;color:#f5f0ff;font-family:'Raleway',sans-serif;overflow-x:hidden;}
+nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:center;justify-content:center;padding:22px 48px;transition:all .5s;}
+nav.solid{background:rgba(0,0,0,.75);backdrop-filter:blur(28px) saturate(1.4);border-bottom:1px solid rgba(255,255,255,.06);padding:14px 48px;}
+.nav-links{display:flex;list-style:none;gap:36px;align-items:center;}
+.nav-links a{font-size:.8rem;font-weight:400;letter-spacing:.06em;color:rgba(255,255,255,.65);text-decoration:none;}
+.nav-pill{position:absolute;right:40px;top:50%;transform:translateY(-50%);font-size:.78rem;font-weight:600;padding:9px 22px;background:#fff;color:#04020e;border-radius:100px;text-decoration:none;}
+.burger{display:none;}
+@media(max-width:900px){.nav-links,.nav-pill{display:none;}.burger{display:block;position:absolute;right:20px;top:50%;transform:translateY(-50%);width:32px;height:32px;cursor:pointer;z-index:600;background:none;border:none;}
+.burger span{display:block;width:22px;height:1.5px;background:#fff;margin:5px auto;border-radius:2px;}
+nav{padding:18px 20px;}}
+</style>
+<link rel="stylesheet" href="styles.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="styles.css"></noscript>
 <style>
 .about-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;padding:0 48px 120px;}
 .astat-card{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:44px;backdrop-filter:blur(14px);position:relative;overflow:hidden;}

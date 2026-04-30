@@ -1,7 +1,6 @@
 /* ═══════════════════════════════════════════
    RAVEN & DRAGON — Shared Styles
    ═══════════════════════════════════════════ */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Raleway:wght@300;400;500;600&family=Cinzel:wght@400;600&display=swap');
 
 :root{
   --void:#04020e;--deep:#07041a;--purple:#7c3aed;--purple-hi:#a855f7;

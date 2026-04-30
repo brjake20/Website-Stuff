@@ -47,3 +47,16 @@ document.querySelectorAll('iframe[data-src]').forEach(iframe=>{
     });
   },{rootMargin:'200px'}).observe(iframe);
 });
+
+/* ═══ LAZY-LOAD VIDEOS (preload=none) ═══ */
+document.querySelectorAll('video[preload="none"]').forEach(vid=>{
+  new IntersectionObserver((entries,observer)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        vid.preload='metadata';
+        vid.load();
+        observer.unobserve(vid);
+      }
+    });
+  },{rootMargin:'400px'}).observe(vid);
+});
