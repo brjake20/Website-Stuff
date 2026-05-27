@@ -48,20 +48,19 @@ nav{padding:18px 20px;}}
 .feat-item{display:flex;gap:7px;align-items:center;font-size:.78rem;color:var(--dim);}
 .feat-item::before{content:'✓';color:var(--green);font-size:.65rem;flex-shrink:0;}
 
-/* ── SQUARE BOOKING SECTION ── */
-.book-section{max-width:900px;margin:0 auto 48px;padding:0 48px;}
-.book-section h2{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.3rem,3vw,1.8rem);font-weight:300;color:#fff;margin-bottom:16px;text-align:center;}
 
-/* Square widget container */
-.square-widget{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);border-radius:12px;min-height:480px;padding:20px;position:relative;}
-
-/* Fallback button if widget doesn't load */
-.book-fallback{text-align:center;margin-top:20px;}
-.book-fallback-link{display:inline-flex;align-items:center;gap:8px;padding:16px 36px;border-radius:100px;background:var(--green);color:#000;font-family:'Raleway',sans-serif;font-size:.88rem;font-weight:600;letter-spacing:.05em;text-decoration:none;transition:all .3s;}
-.book-fallback-link:hover{transform:scale(1.03);box-shadow:0 0 40px rgba(80,200,120,.25);}
-.book-or{font-size:.72rem;color:rgba(255,255,255,.3);margin:16px 0;text-align:center;}
-.book-phone{text-align:center;font-size:.85rem;color:var(--dim);}
-.book-phone a{color:var(--purple-hi);text-decoration:none;font-weight:500;}
+/* Book Now CTA */
+.book-cta-section{max-width:900px;margin:0 auto 32px;padding:0 48px;}
+.book-main-btn{display:flex;align-items:center;gap:18px;padding:22px 28px;border-radius:14px;background:linear-gradient(135deg,rgba(80,200,120,.12),rgba(124,58,237,.08));border:1px solid rgba(80,200,120,.25);text-decoration:none;color:#fff;transition:all .35s;cursor:pointer;}
+.book-main-btn:hover{transform:translateY(-3px);border-color:rgba(80,200,120,.45);box-shadow:0 16px 48px rgba(80,200,120,.12),0 0 0 1px rgba(80,200,120,.15);}
+.book-main-icon{font-size:2rem;flex-shrink:0;}
+.book-main-text{display:flex;flex-direction:column;gap:3px;}
+.book-main-text strong{font-family:'Cinzel',serif;font-size:.95rem;font-weight:600;letter-spacing:.04em;}
+.book-main-text span{font-size:.78rem;color:var(--dim);}
+.book-main-arrow{font-size:1.3rem;margin-left:auto;color:var(--green);flex-shrink:0;transition:transform .3s;}
+.book-main-btn:hover .book-main-arrow{transform:translate(3px,-3px);}
+.book-alt{text-align:center;margin-top:14px;font-size:.78rem;color:rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;gap:8px;}
+.book-alt a{color:var(--purple-hi);text-decoration:none;font-weight:500;}
 
 /* ── WAIVER ── */
 .waiver-box{max-width:900px;margin:0 auto 20px;padding:0 48px;}
@@ -129,12 +128,12 @@ nav{padding:18px 20px;}}
 
 <nav id="nav">
   <ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="booking.html" class="active">Booking</a></li><li><a href="groups.html">Groups</a></li><li><a href="faq.html">FAQ</a></li></ul>
-  <a href="booking.html" class="nav-pill">Book Now ↗</a>
+  <a href="https://app.squareup.com/appointments/book/aukrz0no7ksr12/L2MJ57HQ86YXA/start" target="_blank" rel="noopener noreferrer" class="nav-pill">Book Now ↗</a>
   <button class="burger" id="burger"><span></span><span></span><span></span></button>
 </nav>
 <div class="mob-menu" id="mobMenu">
   <a href="index.html">Home</a><a href="about.html">About</a><a href="booking.html" class="active">Booking</a><a href="groups.html">Groups</a><a href="faq.html">FAQ</a>
-  <a href="booking.html" class="mob-cta">Book Now ↗</a>
+  <a href="https://app.squareup.com/appointments/book/aukrz0no7ksr12/L2MJ57HQ86YXA/start" target="_blank" rel="noopener noreferrer" class="mob-cta">Book Now ↗</a>
   <div class="mob-menu-foot"><span>Route 66 · Williams, AZ</span><a href="tel:+17144147233">(714) 414-7233</a></div>
 </div>
 
@@ -209,23 +208,20 @@ nav{padding:18px 20px;}}
   <div class="feat-item">Walk-ins welcome (if available)</div>
 </div>
 
-<!-- BOOK NOW SECTION -->
-<div class="book-section reveal">
-  <h2>Select a Date & Time</h2>
-
-  <!-- Square Appointments Widget -->
-  <div class="square-widget" id="squareWidget">
-    <script src='https://square.site/appointments/buyer/widget/aukrz0no7ksr12/L2MJ57HQ86YXA.js'></script>
+<!-- BOOK NOW CTA -->
+<div class="book-cta-section reveal">
+  <a href="https://app.squareup.com/appointments/book/aukrz0no7ksr12/L2MJ57HQ86YXA/start" target="_blank" rel="noopener noreferrer" class="book-main-btn">
+    <span class="book-main-icon">📅</span>
+    <span class="book-main-text">
+      <strong>Book Now — Choose Your Time</strong>
+      <span>Select your experience, pick a date, and reserve your spot</span>
+    </span>
+    <span class="book-main-arrow">↗</span>
+  </a>
+  <div class="book-alt">
+    <span>Prefer to call?</span>
+    <a href="tel:+17144147233">(714) 414-7233</a>
   </div>
-
-  <!-- Fallback: direct link to Square booking -->
-  <div class="book-fallback">
-    <div class="book-or">— or book directly on Square —</div>
-    <a href="https://square.site/appointments/buyer/widget/aukrz0no7ksr12/L2MJ57HQ86YXA" target="_blank" rel="noopener noreferrer" class="book-fallback-link">Open Booking Calendar ↗</a>
-  </div>
-
-  <div class="book-or">— or call to book —</div>
-  <div class="book-phone"><a href="tel:+17144147233">(714) 414-7233</a></div>
 </div>
 
 <!-- WAIVER -->
