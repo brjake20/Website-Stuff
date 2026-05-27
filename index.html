@@ -25,6 +25,10 @@ nav.solid{background:rgba(0,0,0,.75);backdrop-filter:blur(28px) saturate(1.4);bo
 @media(max-width:900px){.nav-links,.nav-pill{display:none;}.burger{display:block;position:absolute;right:20px;top:50%;transform:translateY(-50%);width:32px;height:32px;cursor:pointer;z-index:600;background:none;border:none;}
 .burger span{display:block;width:22px;height:1.5px;background:#fff;margin:5px auto;border-radius:2px;}
 nav{padding:18px 20px;}}
+.mob-menu{position:fixed;inset:0;z-index:499;opacity:0;pointer-events:none;display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(0,0,0,.96);}
+.mob-menu.open{opacity:1;pointer-events:all;}
+.mob-menu a,.mob-menu .mob-cta,.mob-menu-foot,.mob-menu-foot *{opacity:0;}
+.mob-menu.open a,.mob-menu.open .mob-cta,.mob-menu.open .mob-menu-foot,.mob-menu.open .mob-menu-foot *{opacity:1;}
 </style>
 <link rel="stylesheet" href="styles.css" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="styles.css"></noscript>
