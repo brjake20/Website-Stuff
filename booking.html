@@ -18,7 +18,11 @@
 
 /* ── PRICING TABLE ── */
 .pricing-wrap{max-width:900px;margin:0 auto 48px;padding:0 48px;}
-.ptable{width:100%;border-collapse:collapse;}
+.ptable-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+.ptable-scroll::-webkit-scrollbar{height:3px;}
+.ptable-scroll::-webkit-scrollbar-track{background:rgba(255,255,255,.03);}
+.ptable-scroll::-webkit-scrollbar-thumb{background:rgba(168,85,247,.2);border-radius:4px;}
+.ptable{width:100%;border-collapse:collapse;min-width:520px;}
 .ptable th{font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--green);padding:10px 14px;text-align:left;border-bottom:1px solid rgba(255,255,255,.08);}
 .ptable td{padding:13px 14px;border-bottom:1px solid rgba(255,255,255,.04);font-size:.86rem;color:var(--dim);}
 .ptable tr:hover td{background:rgba(255,255,255,.015);}
@@ -126,6 +130,7 @@
 <!-- VR ARENA PRICING -->
 <div class="pricing-wrap">
   <div class="price-panel on" id="price-vr">
+    <div class="ptable-scroll">
     <table class="ptable">
       <thead><tr><th>Experience</th><th>Duration</th><th>2 Players</th><th>4 Players</th><th>5 Players</th></tr></thead>
       <tbody>
@@ -145,10 +150,12 @@
         </tr>
       </tbody>
     </table>
+    </div>
   </div>
 
   <!-- ESCAPE ROOM PRICING -->
   <div class="price-panel" id="price-escape">
+    <div class="ptable-scroll">
     <table class="ptable">
       <thead><tr><th>Experience</th><th>Duration</th><th>2 Players</th><th>4 Players</th><th>5 Players</th></tr></thead>
       <tbody>
@@ -168,6 +175,7 @@
         </tr>
       </tbody>
     </table>
+    </div>
   </div>
 </div>
 
