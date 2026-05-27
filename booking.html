@@ -55,7 +55,7 @@ nav{padding:18px 20px;}}
 
 /* Square embed area */
 .square-embed-wrap{max-width:1100px;margin:0 auto 60px;padding:0 48px;}
-.square-embed{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);border-radius:12px;min-height:500px;padding:0;overflow:hidden;position:relative;}
+.square-embed{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);border-radius:12px;min-height:500px;padding:20px;position:relative;}
 .square-embed-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:500px;gap:16px;padding:40px;text-align:center;}
 .sep-icon{font-size:2.5rem;opacity:.4;}
 .sep-title{font-family:'Cinzel',serif;font-size:.85rem;font-weight:600;letter-spacing:.08em;color:rgba(255,255,255,.5);}
@@ -251,8 +251,11 @@ nav{padding:18px 20px;}}
   <div class="square-embed-wrap">
     <h3 style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.4rem;font-weight:300;color:#fff;margin-bottom:16px;">Select a Date & Time</h3>
     <div class="square-embed" id="square-escape">
-      <!-- Square Appointments Embed — Escape Room -->
-      <script src='https://square.site/appointments/buyer/widget/aukrz0no7ksr12/L2MJ57HQ86YXA.js'></script>
+      <p style="text-align:center;padding:40px 20px;color:var(--dim);font-size:.88rem;line-height:1.7;">
+        Use the calendar below to book your escape room session.<br>
+        <span style="font-size:.78rem;color:rgba(80,200,120,.5);">Select "Escape Room" from the service list when booking.</span>
+      </p>
+      <div id="square-escape-widget"></div>
     </div>
   </div>
 
@@ -322,12 +325,20 @@ nav{padding:18px 20px;}}
 <script src="shared.js" defer></script>
 <script>
 /* ══ TABS ══ */
+let escapeLoaded=false;
 document.querySelectorAll('.btab').forEach(tab=>{
   tab.addEventListener('click',()=>{
     document.querySelectorAll('.btab').forEach(t=>t.classList.remove('on'));
     document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('on'));
     tab.classList.add('on');
     document.getElementById('panel-'+tab.dataset.tab).classList.add('on');
+    // Load Square widget into escape tab on first click
+    if(tab.dataset.tab==='escape'&&!escapeLoaded){
+      const s=document.createElement('script');
+      s.src='https://square.site/appointments/buyer/widget/aukrz0no7ksr12/L2MJ57HQ86YXA.js';
+      document.getElementById('square-escape-widget').appendChild(s);
+      escapeLoaded=true;
+    }
   });
 });
 
