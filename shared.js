@@ -14,16 +14,31 @@ if(nav) window.addEventListener('scroll',()=>nav.classList.toggle('solid',scroll
 /* ═══ HAMBURGER ═══ */
 const burger=document.getElementById('burger');
 const mobMenu=document.getElementById('mobMenu');
+const mobFoot=mobMenu?mobMenu.querySelector('.mob-menu-foot'):null;
 if(burger&&mobMenu){
+  // Remove inline display:none once CSS is loaded (CSS handles hiding via opacity)
+  // But only show via JS toggle to prevent flash
   burger.addEventListener('click',()=>{
+    const opening=!mobMenu.classList.contains('open');
     burger.classList.toggle('open');
-    mobMenu.classList.toggle('open');
-    document.body.style.overflow=mobMenu.classList.contains('open')?'hidden':'';
+    if(opening){
+      mobMenu.style.display='flex';
+      if(mobFoot)mobFoot.style.display='';
+      // Force reflow before adding class for animation
+      mobMenu.offsetHeight;
+      mobMenu.classList.add('open');
+    }else{
+      mobMenu.classList.remove('open');
+      // Hide after transition
+      setTimeout(()=>{if(!mobMenu.classList.contains('open')){mobMenu.style.display='none';}},500);
+    }
+    document.body.style.overflow=opening?'hidden':'';
   });
   mobMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
     burger.classList.remove('open');
     mobMenu.classList.remove('open');
     document.body.style.overflow='';
+    setTimeout(()=>{mobMenu.style.display='none';},500);
   }));
 }
 

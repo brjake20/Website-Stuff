@@ -21,10 +21,6 @@ nav.solid{background:rgba(0,0,0,.75);backdrop-filter:blur(28px) saturate(1.4);bo
 @media(max-width:900px){.nav-links,.nav-pill{display:none;}.burger{display:block;position:absolute;right:20px;top:50%;transform:translateY(-50%);width:32px;height:32px;cursor:pointer;z-index:600;background:none;border:none;}
 .burger span{display:block;width:22px;height:1.5px;background:#fff;margin:5px auto;border-radius:2px;}
 nav{padding:18px 20px;}}
-.mob-menu{position:fixed;inset:0;z-index:499;opacity:0;pointer-events:none;display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(0,0,0,.96);}
-.mob-menu.open{opacity:1;pointer-events:all;}
-.mob-menu a,.mob-menu .mob-cta,.mob-menu-foot,.mob-menu-foot *{opacity:0;}
-.mob-menu.open a,.mob-menu.open .mob-cta,.mob-menu.open .mob-menu-foot,.mob-menu.open .mob-menu-foot *{opacity:1;}
 </style>
 <link rel="stylesheet" href="styles.css" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="styles.css"></noscript>
@@ -124,10 +120,10 @@ nav{padding:18px 20px;}}
   <a href="https://app.squareup.com/appointments/book/aukrz0no7ksr12/L2MJ57HQ86YXA/start" target="_blank" rel="noopener noreferrer" class="nav-pill">Book Now ↗</a>
   <button class="burger" id="burger"><span></span><span></span><span></span></button>
 </nav>
-<div class="mob-menu" id="mobMenu">
+<div class="mob-menu" id="mobMenu" style="display:none;">
   <a href="index.html">Home</a><a href="about.html">About</a><a href="booking.html" class="active">Experiences</a><a href="groups.html">Groups</a><a href="faq.html">FAQ</a>
   <a href="https://app.squareup.com/appointments/book/aukrz0no7ksr12/L2MJ57HQ86YXA/start" target="_blank" rel="noopener noreferrer" class="mob-cta">Book Now ↗</a>
-  <div class="mob-menu-foot"><span>Route 66 · Williams, AZ</span><a href="tel:+19282355353">(928) 235-5353</a></div>
+  <div class="mob-menu-foot" style="display:none;"><span>Route 66 · Williams, AZ</span><a href="tel:+19282355353">(928) 235-5353</a></div>
 </div>
 
 <!-- HERO -->
