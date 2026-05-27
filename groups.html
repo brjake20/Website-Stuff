@@ -86,18 +86,19 @@ nav{padding:18px 20px;}}
   </div>
   <div class="gform reveal d1">
     <h3>Request Group Booking</h3>
-    <p class="anote">We'll confirm availability within 24 hours. Deposit collected via Square on confirmation.</p>
-    <div class="fg-row"><div class="fg"><label>First Name</label><input type="text" placeholder="Aria"></div><div class="fg"><label>Last Name</label><input type="text" placeholder="Storm"></div></div>
-    <div class="fg"><label>Email</label><input type="email" placeholder="you@realm.com"></div>
-    <div class="fg"><label>Phone</label><input type="tel" placeholder="(555) 000-0000"></div>
+    <p class="anote">Submit your request and we'll confirm availability within 24 hours. You can also call us directly at <a href="tel:+17144147233" style="color:var(--purple-hi);">(714) 414-7233</a>.</p>
+    <div class="fg-row"><div class="fg"><label>First Name</label><input type="text" placeholder="Aria" id="gf-fname"></div><div class="fg"><label>Last Name</label><input type="text" placeholder="Storm" id="gf-lname"></div></div>
+    <div class="fg"><label>Email</label><input type="email" placeholder="you@realm.com" id="gf-email"></div>
+    <div class="fg"><label>Phone</label><input type="tel" placeholder="(555) 000-0000" id="gf-phone"></div>
     <div class="fg-row">
-      <div class="fg"><label>Group Size</label><select><option>5–10 warriors</option><option>11–20 warriors</option><option>21–35 warriors</option><option>36–50 warriors</option></select></div>
-      <div class="fg"><label>Event Type</label><select><option>Birthday</option><option>Corporate Team</option><option>Bachelor / Bachelorette</option><option>School / Youth</option><option>Other</option></select></div>
+      <div class="fg"><label>Group Size</label><select id="gf-size"><option>5–10 people</option><option>11–20 people</option><option>21–35 people</option><option>36–50 people</option></select></div>
+      <div class="fg"><label>Event Type</label><select id="gf-type"><option>Birthday</option><option>Corporate Team Building</option><option>Bachelor / Bachelorette</option><option>School / Youth Group</option><option>Other</option></select></div>
     </div>
-    <div class="fg"><label>Preferred Date</label><input type="date"></div>
-    <div class="fg"><label>Tell us about your event</label><textarea placeholder="Any special requests, themes, or questions…"></textarea></div>
-    <button class="sub-btn" data-square-link="https://squareup.com/YOUR-LINK">Submit & Pay Deposit via Square ↗</button>
-    <p class="form-note">Secured by <a href="https://squareup.com" target="_blank" rel="noopener noreferrer">Square</a></p>
+    <div class="fg"><label>Preferred Date</label><input type="date" id="gf-date"></div>
+    <div class="fg"><label>Tell us about your event</label><textarea placeholder="Any special requests, themes, or questions…" id="gf-msg"></textarea></div>
+    <button class="sub-btn" id="gf-submit">Submit Request ↗</button>
+    <p class="form-note" style="margin-top:14px;">Or call us directly: <a href="tel:+17144147233" style="color:var(--purple-hi);">(714) 414-7233</a></p>
+    <p class="form-note">No payment required to submit — we'll reach out to discuss pricing &amp; availability.</p>
   </div>
 </div>
 
@@ -125,4 +126,35 @@ nav{padding:18px 20px;}}
   </div>
 </footer>
 <script src="shared.js" defer></script>
+<script>
+document.getElementById('gf-submit').addEventListener('click',function(){
+  const fname=document.getElementById('gf-fname').value;
+  const lname=document.getElementById('gf-lname').value;
+  const email=document.getElementById('gf-email').value;
+  const phone=document.getElementById('gf-phone').value;
+  const size=document.getElementById('gf-size').value;
+  const type=document.getElementById('gf-type').value;
+  const date=document.getElementById('gf-date').value;
+  const msg=document.getElementById('gf-msg').value;
+
+  if(!fname||!email){alert('Please fill in at least your name and email.');return;}
+
+  const subject=encodeURIComponent('Group Booking Request — '+type+' ('+size+')');
+  const body=encodeURIComponent(
+    'GROUP BOOKING REQUEST\n'+
+    '━━━━━━━━━━━━━━━━━━━━\n\n'+
+    'Name: '+fname+' '+lname+'\n'+
+    'Email: '+email+'\n'+
+    'Phone: '+phone+'\n'+
+    'Group Size: '+size+'\n'+
+    'Event Type: '+type+'\n'+
+    'Preferred Date: '+date+'\n\n'+
+    'Message:\n'+msg+'\n\n'+
+    '━━━━━━━━━━━━━━━━━━━━\n'+
+    'Sent from ravenanddragon.com'
+  );
+
+  window.location.href='mailto:ravenanddragonllc@gmail.com?subject='+subject+'&body='+body;
+});
+</script>
 </body></html>
