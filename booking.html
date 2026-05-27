@@ -25,54 +25,54 @@ nav{padding:18px 20px;}}
 <link rel="stylesheet" href="styles.css" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="styles.css"></noscript>
 <style>
-/* ── TABS ── */
-.booking-tabs{display:flex;justify-content:center;gap:0;margin:0 auto 40px;max-width:480px;padding:0 48px;}
-.btab{flex:1;text-align:center;padding:14px 0;font-family:'Cinzel',serif;font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.02);color:rgba(255,255,255,.4);transition:all .3s;position:relative;}
-.btab:first-child{border-radius:8px 0 0 8px;}
-.btab:last-child{border-radius:0 8px 8px 0;}
-.btab.on{background:rgba(124,58,237,.15);border-color:rgba(168,85,247,.35);color:#fff;}
-.btab.on::after{content:'';position:absolute;bottom:-1px;left:20%;right:20%;height:2px;background:var(--purple-hi);border-radius:2px;}
-.tab-panel{display:none;}
-.tab-panel.on{display:block;}
+/* ── PRICING TOGGLE ── */
+.price-toggle{display:flex;justify-content:center;gap:0;margin:0 auto 36px;max-width:400px;}
+.ptog{flex:1;text-align:center;padding:12px 0;font-family:'Cinzel',serif;font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.02);color:rgba(255,255,255,.4);transition:all .3s;}
+.ptog:first-child{border-radius:8px 0 0 8px;}
+.ptog:last-child{border-radius:0 8px 8px 0;}
+.ptog.on{background:rgba(124,58,237,.15);border-color:rgba(168,85,247,.35);color:#fff;}
 
-/* ── PRICING SECTION ── */
-.pricing-section{max-width:1100px;margin:0 auto 48px;padding:0 48px;}
-.pricing-title{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.4rem,3vw,2rem);font-weight:300;color:#fff;margin-bottom:6px;}
-.pricing-sub{font-size:.8rem;color:var(--dim);margin-bottom:28px;}
-
-/* Pricing table */
-.ptable{width:100%;border-collapse:collapse;margin-bottom:32px;}
-.ptable th{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--green);padding:10px 16px;text-align:left;border-bottom:1px solid rgba(255,255,255,.08);}
-.ptable td{padding:14px 16px;border-bottom:1px solid rgba(255,255,255,.04);font-size:.88rem;color:var(--dim);}
-.ptable tr:hover td{background:rgba(255,255,255,.02);}
+/* ── PRICING TABLE ── */
+.pricing-wrap{max-width:900px;margin:0 auto 48px;padding:0 48px;}
+.ptable{width:100%;border-collapse:collapse;}
+.ptable th{font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--green);padding:10px 14px;text-align:left;border-bottom:1px solid rgba(255,255,255,.08);}
+.ptable td{padding:13px 14px;border-bottom:1px solid rgba(255,255,255,.04);font-size:.86rem;color:var(--dim);}
+.ptable tr:hover td{background:rgba(255,255,255,.015);}
 .ptable .price{color:#fff;font-weight:500;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;}
-.ptable .per-person{font-size:.72rem;color:rgba(80,200,120,.6);display:block;margin-top:2px;}
+.ptable .pp{font-size:.68rem;color:rgba(80,200,120,.55);display:block;margin-top:1px;}
+.price-panel{display:none;}
+.price-panel.on{display:block;}
 
-/* Features list */
-.feat-list{display:grid;grid-template-columns:1fr 1fr;gap:8px 24px;margin-bottom:32px;max-width:600px;}
-.feat-item{display:flex;gap:8px;align-items:center;font-size:.8rem;color:var(--dim);}
-.feat-item::before{content:'✓';color:var(--green);font-size:.7rem;flex-shrink:0;}
+/* ── FEATURES ── */
+.feat-strip{max-width:900px;margin:0 auto 48px;padding:0 48px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px 20px;}
+.feat-item{display:flex;gap:7px;align-items:center;font-size:.78rem;color:var(--dim);}
+.feat-item::before{content:'✓';color:var(--green);font-size:.65rem;flex-shrink:0;}
 
-/* Square embed area */
-.square-embed-wrap{max-width:1100px;margin:0 auto 60px;padding:0 48px;}
-.square-embed{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);border-radius:12px;min-height:500px;padding:20px;position:relative;}
-.square-embed-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:500px;gap:16px;padding:40px;text-align:center;}
-.sep-icon{font-size:2.5rem;opacity:.4;}
-.sep-title{font-family:'Cinzel',serif;font-size:.85rem;font-weight:600;letter-spacing:.08em;color:rgba(255,255,255,.5);}
-.sep-desc{font-size:.78rem;color:var(--dim);max-width:400px;line-height:1.7;}
-.sep-code{font-size:.68rem;color:rgba(168,85,247,.5);background:rgba(124,58,237,.06);border:1px solid rgba(168,85,247,.15);border-radius:6px;padding:12px 18px;max-width:500px;line-height:1.6;font-family:monospace;}
+/* ── SQUARE BOOKING SECTION ── */
+.book-section{max-width:900px;margin:0 auto 48px;padding:0 48px;}
+.book-section h2{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.3rem,3vw,1.8rem);font-weight:300;color:#fff;margin-bottom:16px;text-align:center;}
 
-/* Waiver checkbox */
-.waiver-box{max-width:1100px;margin:0 auto 24px;padding:0 48px;}
+/* Square widget container */
+.square-widget{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);border-radius:12px;min-height:480px;padding:20px;position:relative;}
+
+/* Fallback button if widget doesn't load */
+.book-fallback{text-align:center;margin-top:20px;}
+.book-fallback-link{display:inline-flex;align-items:center;gap:8px;padding:16px 36px;border-radius:100px;background:var(--green);color:#000;font-family:'Raleway',sans-serif;font-size:.88rem;font-weight:600;letter-spacing:.05em;text-decoration:none;transition:all .3s;}
+.book-fallback-link:hover{transform:scale(1.03);box-shadow:0 0 40px rgba(80,200,120,.25);}
+.book-or{font-size:.72rem;color:rgba(255,255,255,.3);margin:16px 0;text-align:center;}
+.book-phone{text-align:center;font-size:.85rem;color:var(--dim);}
+.book-phone a{color:var(--purple-hi);text-decoration:none;font-weight:500;}
+
+/* ── WAIVER ── */
+.waiver-box{max-width:900px;margin:0 auto 20px;padding:0 48px;}
 .waiver-check{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.06);border-radius:8px;padding:14px 18px;display:flex;align-items:flex-start;gap:10px;}
 .waiver-check input{margin-top:3px;accent-color:#50c878;width:16px;height:16px;flex-shrink:0;cursor:pointer;}
 .waiver-check label{font-size:.78rem;color:var(--dim);line-height:1.6;cursor:pointer;}
 .waiver-check a{color:var(--purple-hi);}
 
-/* Discount strip */
-.discount-center{text-align:center;margin:0 auto 60px;font-size:.72rem;color:rgba(80,200,120,.6);}
+.discount-center{text-align:center;margin:20px auto 60px;font-size:.72rem;color:rgba(80,200,120,.6);}
 
-/* Games section */
+/* ── GAMES SECTION ── */
 .games-sec{max-width:1300px;margin:0 auto;padding:0 48px 100px;}
 .filter-bar{display:flex;gap:7px;justify-content:center;flex-wrap:wrap;margin-bottom:40px;}
 .fpill{font-size:.72rem;letter-spacing:.06em;padding:7px 18px;border-radius:100px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.07);color:rgba(255,255,255,.45);cursor:pointer;transition:all .25s;font-family:'Raleway',sans-serif;}
@@ -105,7 +105,7 @@ nav{padding:18px 20px;}}
 .gmodal-bg{display:none;position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,.92);backdrop-filter:blur(20px);align-items:center;justify-content:center;padding:20px;}
 .gmodal-bg.open{display:flex;}
 .gmodal{background:#0a0620;border:1px solid rgba(255,255,255,.08);border-radius:14px;max-width:520px;width:100%;padding:36px;position:relative;}
-.gmodal-close{position:absolute;top:14px;right:14px;background:none;border:none;color:var(--dim);font-size:1.1rem;cursor:pointer;padding:6px;transition:color .2s;}
+.gmodal-close{position:absolute;top:14px;right:14px;background:none;border:none;color:var(--dim);font-size:1.1rem;cursor:pointer;padding:6px;}
 .gmodal-close:hover{color:#fff;}
 .gmodal-header{display:flex;gap:18px;align-items:center;margin-bottom:20px;}
 .gmodal-icon{width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,#0e0530,#1a0840);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
@@ -115,21 +115,18 @@ nav{padding:18px 20px;}}
 .gmodal-meta-label{font-family:'Cinzel',serif;font-size:.55rem;letter-spacing:.15em;text-transform:uppercase;color:var(--green);margin-bottom:2px;}
 .gmodal-meta-val{font-size:.85rem;color:#fff;}
 
-/* Loading */
-.games-loading{text-align:center;padding:40px;color:var(--dim);font-size:.85rem;}
-
 @media(max-width:900px){
-  .pricing-section,.square-embed-wrap,.waiver-box{padding-left:20px;padding-right:20px;}
-  .booking-tabs{padding:0 20px;}
+  .pricing-wrap,.book-section,.waiver-box{padding-left:20px;padding-right:20px;}
+  .feat-strip{grid-template-columns:1fr 1fr;padding-left:20px;padding-right:20px;}
+  .price-toggle{margin-left:20px;margin-right:20px;}
   .games-sec{padding-left:20px;padding-right:20px;}
   .games-grid{grid-template-columns:1fr;}
-  .feat-list{grid-template-columns:1fr;}
-  .ptable{font-size:.82rem;}
   .gmodal{margin:10px;max-width:100%;}
 }
 </style>
 </head><body>
 <div id="cur"></div><div id="curR"></div>
+
 <nav id="nav">
   <ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="booking.html" class="active">Booking</a></li><li><a href="groups.html">Groups</a></li><li><a href="faq.html">FAQ</a></li></ul>
   <a href="booking.html" class="nav-pill">Book Now ↗</a>
@@ -142,126 +139,96 @@ nav{padding:18px 20px;}}
 </div>
 
 <!-- HERO -->
-<div class="page-hero" style="padding-top:130px;padding-bottom:32px;">
+<div class="page-hero" style="padding-top:130px;padding-bottom:28px;">
   <span class="eyebrow reveal">Book Your Experience</span>
   <h1 class="sec-title reveal d1" style="font-size:clamp(1.8rem,4vw,3rem);margin-bottom:8px;">Choose Your Adventure</h1>
-  <p class="sec-sub reveal d2" style="margin-bottom:0;">Select your experience type, pick a time, and we'll see you on the arena floor.</p>
+  <p class="sec-sub reveal d2" style="margin-bottom:0;">Pick your experience, select a time, and we'll see you on the arena floor.</p>
 </div>
 
-<!-- TABS -->
-<div class="booking-tabs reveal">
-  <div class="btab on" data-tab="vr">🎮 VR Arena Games</div>
-  <div class="btab" data-tab="escape">🔐 Escape Room</div>
+<!-- PRICING TOGGLE -->
+<div class="price-toggle reveal">
+  <div class="ptog on" data-panel="vr">🎮 VR Arena Games</div>
+  <div class="ptog" data-panel="escape">🔐 Escape Room</div>
 </div>
 
-<!-- ══════════════════════════════════
-     VR ARENA TAB
-══════════════════════════════════ -->
-<div class="tab-panel on" id="panel-vr">
-
-  <div class="pricing-section">
-    <h2 class="pricing-title">VR Arena — Pricing</h2>
-    <p class="pricing-sub">Up to 6 players per arena · 3 arenas available · All equipment included</p>
-
+<!-- VR ARENA PRICING -->
+<div class="pricing-wrap">
+  <div class="price-panel on" id="price-vr">
     <table class="ptable">
-      <thead>
-        <tr><th>Experience</th><th>Duration</th><th>2 Players</th><th>4 Players</th><th>5 Players</th></tr>
-      </thead>
+      <thead><tr><th>Experience</th><th>Duration</th><th>2 Players</th><th>4 Players</th><th>5 Players</th></tr></thead>
       <tbody>
         <tr>
           <td><strong style="color:#fff;">3-Game Pack</strong></td>
           <td>30 min</td>
-          <td><span class="price">$100</span><span class="per-person">$50/person</span></td>
-          <td><span class="price">$200</span><span class="per-person">$50/person</span></td>
-          <td><span class="price">$270</span><span class="per-person">$54/person</span></td>
+          <td><span class="price">$100</span><span class="pp">$50/person</span></td>
+          <td><span class="price">$200</span><span class="pp">$50/person</span></td>
+          <td><span class="price">$270</span><span class="pp">$54/person</span></td>
         </tr>
         <tr>
           <td><strong style="color:#fff;">6-Game Pack</strong></td>
           <td>60 min</td>
-          <td><span class="price">$180</span><span class="per-person">$90/person</span></td>
-          <td><span class="price">$360</span><span class="per-person">$90/person</span></td>
-          <td><span class="price">$460</span><span class="per-person">$92/person</span></td>
+          <td><span class="price">$180</span><span class="pp">$90/person</span></td>
+          <td><span class="price">$360</span><span class="pp">$90/person</span></td>
+          <td><span class="price">$460</span><span class="pp">$92/person</span></td>
         </tr>
       </tbody>
     </table>
-
-    <div class="feat-list">
-      <div class="feat-item">Full VR headset + haptic controllers</div>
-      <div class="feat-item">Dedicated VR technician</div>
-      <div class="feat-item">30+ games to choose from</div>
-      <div class="feat-item">Personal safety orientation</div>
-      <div class="feat-item">Up to 6 players per arena</div>
-      <div class="feat-item">Walk-ins welcome (availability permitting)</div>
-    </div>
   </div>
 
-  <!-- SQUARE APPOINTMENTS EMBED — VR GAMES -->
-  <div class="square-embed-wrap">
-    <h3 style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.4rem;font-weight:300;color:#fff;margin-bottom:16px;">Select a Date & Time</h3>
-    <div class="square-embed" id="square-vr">
-      <!-- Square Appointments Embed — VR Games -->
-      <script src='https://square.site/appointments/buyer/widget/aukrz0no7ksr12/L2MJ57HQ86YXA.js'></script>
-    </div>
-  </div>
-
-</div>
-
-<!-- ══════════════════════════════════
-     ESCAPE ROOM TAB
-══════════════════════════════════ -->
-<div class="tab-panel" id="panel-escape">
-
-  <div class="pricing-section">
-    <h2 class="pricing-title">VR Escape Room — Pricing</h2>
-    <p class="pricing-sub">Private room · Your team only · Up to 5 players · All equipment included</p>
-
+  <!-- ESCAPE ROOM PRICING -->
+  <div class="price-panel" id="price-escape">
     <table class="ptable">
-      <thead>
-        <tr><th>Experience</th><th>Duration</th><th>2 Players</th><th>4 Players</th><th>5 Players</th></tr>
-      </thead>
+      <thead><tr><th>Experience</th><th>Duration</th><th>2 Players</th><th>4 Players</th><th>5 Players</th></tr></thead>
       <tbody>
         <tr>
           <td><strong style="color:#fff;">Escape Room</strong></td>
           <td>45 min</td>
-          <td><span class="price">$135</span><span class="per-person">$67.50/person</span></td>
-          <td><span class="price">$270</span><span class="per-person">$67.50/person</span></td>
-          <td><span class="price">$345</span><span class="per-person">$69/person</span></td>
+          <td><span class="price">$135</span><span class="pp">$67.50/person</span></td>
+          <td><span class="price">$270</span><span class="pp">$67.50/person</span></td>
+          <td><span class="price">$345</span><span class="pp">$69/person</span></td>
         </tr>
         <tr>
           <td><strong style="color:#fff;">Escape Room</strong></td>
           <td>60 min</td>
-          <td><span class="price">$180</span><span class="per-person">$90/person</span></td>
-          <td><span class="price">$360</span><span class="per-person">$90/person</span></td>
-          <td><span class="price">$460</span><span class="per-person">$92/person</span></td>
+          <td><span class="price">$180</span><span class="pp">$90/person</span></td>
+          <td><span class="price">$360</span><span class="pp">$90/person</span></td>
+          <td><span class="price">$460</span><span class="pp">$92/person</span></td>
         </tr>
       </tbody>
     </table>
-
-    <div class="feat-list">
-      <div class="feat-item">Private room — your team only</div>
-      <div class="feat-item">Immersive VR puzzle experience</div>
-      <div class="feat-item">Difficulty tiers: Novice → Legendary</div>
-      <div class="feat-item">Hints system available</div>
-      <div class="feat-item">Up to 5 players per room</div>
-      <div class="feat-item">Completion certificate</div>
-    </div>
   </div>
-
-  <!-- SQUARE APPOINTMENTS EMBED — ESCAPE ROOM -->
-  <div class="square-embed-wrap">
-    <h3 style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.4rem;font-weight:300;color:#fff;margin-bottom:16px;">Select a Date & Time</h3>
-    <div class="square-embed" id="square-escape">
-      <p style="text-align:center;padding:40px 20px;color:var(--dim);font-size:.88rem;line-height:1.7;">
-        Use the calendar below to book your escape room session.<br>
-        <span style="font-size:.78rem;color:rgba(80,200,120,.5);">Select "Escape Room" from the service list when booking.</span>
-      </p>
-      <div id="square-escape-widget"></div>
-    </div>
-  </div>
-
 </div>
 
-<!-- WAIVER CHECKBOX -->
+<!-- FEATURES (shared — always visible) -->
+<div class="feat-strip reveal">
+  <div class="feat-item">Full VR headset + haptics</div>
+  <div class="feat-item">Dedicated VR technician</div>
+  <div class="feat-item">Up to 6 players per arena</div>
+  <div class="feat-item">Personal safety orientation</div>
+  <div class="feat-item">30+ games to choose from</div>
+  <div class="feat-item">Walk-ins welcome (if available)</div>
+</div>
+
+<!-- BOOK NOW SECTION -->
+<div class="book-section reveal">
+  <h2>Select a Date & Time</h2>
+
+  <!-- Square Appointments Widget -->
+  <div class="square-widget" id="squareWidget">
+    <script src='https://square.site/appointments/buyer/widget/aukrz0no7ksr12/L2MJ57HQ86YXA.js'></script>
+  </div>
+
+  <!-- Fallback: direct link to Square booking -->
+  <div class="book-fallback">
+    <div class="book-or">— or book directly on Square —</div>
+    <a href="https://square.site/appointments/buyer/widget/aukrz0no7ksr12/L2MJ57HQ86YXA" target="_blank" rel="noopener noreferrer" class="book-fallback-link">Open Booking Calendar ↗</a>
+  </div>
+
+  <div class="book-or">— or call to book —</div>
+  <div class="book-phone"><a href="tel:+17144147233">(714) 414-7233</a></div>
+</div>
+
+<!-- WAIVER -->
 <div class="waiver-box">
   <div class="waiver-check">
     <input type="checkbox" id="waiver-agree">
@@ -293,24 +260,17 @@ nav{padding:18px 20px;}}
     <div class="gmodal-meta">
       <div class="gmodal-meta-item"><div class="gmodal-meta-label">Players</div><div class="gmodal-meta-val" id="gmodalPlayers"></div></div>
       <div class="gmodal-meta-item"><div class="gmodal-meta-label">Difficulty</div><div class="gmodal-meta-val" id="gmodalDiff"></div></div>
-      <div class="gmodal-meta-item"><div class="gmodal-meta-label">Genre</div><div class="gmodal-meta-val" id="gmodalGenre"></div></div>
-      <div class="gmodal-meta-item"><div class="gmodal-meta-label">Type</div><div class="gmodal-meta-val">Free-Roam VR</div></div>
     </div>
   </div>
 </div>
 
 <footer>
   <div class="footer-main">
-    <div class="footer-brand">
-      <a href="index.html" class="footer-brand-name">Raven &amp; Dragon</a>
-      <p>Free-roam VR arena and immersive escape rooms on Route 66 in Williams, Arizona.</p>
-    </div>
-    <div class="footer-logo-wrap">
-      <picture><source srcset="logo.webp" type="image/webp"><img src="logo.png" alt="Raven &amp; Dragon" class="footer-logo" width="160" height="160" loading="lazy"></picture>
-    </div>
+    <div class="footer-brand"><a href="index.html" class="footer-brand-name">Raven &amp; Dragon</a><p>Free-roam VR arena and immersive escape rooms on Route 66 in Williams, Arizona.</p></div>
+    <div class="footer-logo-wrap"><picture><source srcset="logo.webp" type="image/webp"><img src="logo.png" alt="Raven &amp; Dragon" class="footer-logo" width="160" height="160" loading="lazy"></picture></div>
     <div class="footer-nav">
       <div class="fcol"><h4>Navigate</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="booking.html">Booking</a></li><li><a href="groups.html">Groups</a></li><li><a href="faq.html">FAQ</a></li></ul></div>
-      <div class="fcol"><h4>Get in Touch</h4><ul><li><a href="https://maps.google.com/?q=518+E+Route+66+Williams+AZ+86046" target="_blank" rel="noopener noreferrer">518 E Route 66, Williams, AZ 86046</a></li><li><a href="tel:+17144147233">(714) 414-7233</a></li><li><a href="mailto:ravenanddragonllc@gmail.com">ravenanddragonllc@gmail.com</a></li><li><a href="https://www.instagram.com/ravenanddragonvr/" target="_blank" rel="noopener noreferrer">Instagram</a></li><li><a href="https://facebook.com/profile.php?id=61564699002867" target="_blank" rel="noopener noreferrer">Facebook</a></li></ul></div>
+      <div class="fcol"><h4>Get in Touch</h4><ul><li><a href="https://maps.google.com/?q=518+E+Route+66+Williams+AZ+86046" target="_blank" rel="noopener noreferrer">518 E Route 66, Williams, AZ</a></li><li><a href="tel:+17144147233">(714) 414-7233</a></li><li><a href="mailto:ravenanddragonllc@gmail.com">ravenanddragonllc@gmail.com</a></li><li><a href="https://www.instagram.com/ravenanddragonvr/" target="_blank" rel="noopener noreferrer">Instagram</a></li><li><a href="https://facebook.com/profile.php?id=61564699002867" target="_blank" rel="noopener noreferrer">Facebook</a></li></ul></div>
     </div>
   </div>
   <div class="footer-bot"><p>&copy; 2025 Raven &amp; Dragon VR Arena &middot; &#127894; Military &amp; first responder discounts</p><p>Forged on Route 66</p></div>
@@ -324,21 +284,13 @@ nav{padding:18px 20px;}}
 
 <script src="shared.js" defer></script>
 <script>
-/* ══ TABS ══ */
-let escapeLoaded=false;
-document.querySelectorAll('.btab').forEach(tab=>{
-  tab.addEventListener('click',()=>{
-    document.querySelectorAll('.btab').forEach(t=>t.classList.remove('on'));
-    document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('on'));
-    tab.classList.add('on');
-    document.getElementById('panel-'+tab.dataset.tab).classList.add('on');
-    // Load Square widget into escape tab on first click
-    if(tab.dataset.tab==='escape'&&!escapeLoaded){
-      const s=document.createElement('script');
-      s.src='https://square.site/appointments/buyer/widget/aukrz0no7ksr12/L2MJ57HQ86YXA.js';
-      document.getElementById('square-escape-widget').appendChild(s);
-      escapeLoaded=true;
-    }
+/* ══ PRICING TOGGLE ══ */
+document.querySelectorAll('.ptog').forEach(t=>{
+  t.addEventListener('click',()=>{
+    document.querySelectorAll('.ptog').forEach(x=>x.classList.remove('on'));
+    document.querySelectorAll('.price-panel').forEach(p=>p.classList.remove('on'));
+    t.classList.add('on');
+    document.getElementById('price-'+t.dataset.panel).classList.add('on');
   });
 });
 
@@ -346,11 +298,10 @@ document.querySelectorAll('.btab').forEach(tab=>{
 function esc(s){if(!s)return'';const d=document.createElement('div');d.textContent=s;return d.innerHTML;}
 
 /* ══ GOOGLE SHEETS INTEGRATION ══ */
-const SHEET_CSV_URL = '';
-
+const SHEET_CSV_URL='';
 const FALLBACK=[
-  {name:"Dragon's Lair VR",desc:"Face the ancient beast in its volcanic home. Navigate through scorching caverns, dodge fire breath, and confront the dragon in an epic finale.",cat:"adventure",players:"1–4",diff:3,badge:"best",badgeLabel:"⭐ Best Seller",img:""},
-  {name:"Raven's Curse",desc:"Break the dark spell before midnight strikes. Solve cryptic puzzles, brew potions, and unravel sinister surprises.",cat:"escape",players:"2–6",diff:4,badge:"best",badgeLabel:"⭐ Best Seller",img:""},
+  {name:"Dragon's Lair VR",desc:"Face the ancient beast in its volcanic home. Navigate through scorching caverns and confront the dragon in an epic finale.",cat:"adventure",players:"1–4",diff:3,badge:"best",badgeLabel:"⭐ Best Seller",img:""},
+  {name:"Raven's Curse",desc:"Break the dark spell before midnight strikes. Solve cryptic puzzles and unravel sinister surprises.",cat:"escape",players:"2–6",diff:4,badge:"best",badgeLabel:"⭐ Best Seller",img:""},
   {name:"Zombie Outbreak",desc:"Survive the horde. Every bullet counts.",cat:"horror",players:"1–4",diff:3,badge:"hot",badgeLabel:"🔥 Popular",img:""},
   {name:"Cyber Arena",desc:"Fast-paced PvP in a neon-drenched future.",cat:"action",players:"2–6",diff:2,badge:"hot",badgeLabel:"🔥 Popular",img:""},
   {name:"Lost in Avalon",desc:"Solve ancient Arthurian mysteries in a mist-covered realm.",cat:"adventure",players:"1–4",diff:2,badge:"family",badgeLabel:"👨‍👩‍👧 Family Friendly",img:""},
@@ -382,30 +333,21 @@ const FALLBACK=[
 ];
 
 function parseCSV(csv){
-  const lines=csv.split('\n').filter(l=>l.trim());
-  if(lines.length<2)return[];
+  const lines=csv.split('\n').filter(l=>l.trim());if(lines.length<2)return[];
   const headers=lines[0].split(',').map(h=>h.trim().toLowerCase().replace(/[^a-z]/g,''));
   return lines.slice(1).map(line=>{
     const vals=[];let cur='',inQ=false;
     for(const ch of line){if(ch==='"'){inQ=!inQ;}else if(ch===','&&!inQ){vals.push(cur.trim());cur='';}else{cur+=ch;}}
-    vals.push(cur.trim());
-    const obj={};headers.forEach((h,i)=>{obj[h]=vals[i]||'';});
-    obj.diff=parseInt(obj.diff)||2;obj.badge=obj.badge||'';
-    obj.badgelabel=obj.badgelabel||obj.badgeLabel||'';obj.badgeLabel=obj.badgelabel;obj.img=obj.img||'';
+    vals.push(cur.trim());const obj={};headers.forEach((h,i)=>{obj[h]=vals[i]||'';});
+    obj.diff=parseInt(obj.diff)||2;obj.badge=obj.badge||'';obj.badgeLabel=obj.badgelabel||obj.badgeLabel||'';obj.img=obj.img||'';
     return obj;
   }).filter(g=>g.name);
 }
 
-let games=FALLBACK;let page=1,filter='all';const PER=12;
-
+let games=FALLBACK,page=1,filter='all';const PER=12;
 async function loadFromSheet(){
   if(!SHEET_CSV_URL)return;
-  try{
-    document.getElementById('gamesGrid').innerHTML='<div class="games-loading">Loading games...</div>';
-    const res=await fetch(SHEET_CSV_URL);if(!res.ok)throw new Error('Fetch failed');
-    const parsed=parseCSV(await res.text());
-    if(parsed.length>0){games=parsed;page=1;renderGames();}
-  }catch(e){console.warn('Sheet load failed:',e);renderGames();}
+  try{const r=await fetch(SHEET_CSV_URL);const p=parseCSV(await r.text());if(p.length>0){games=p;page=1;renderGames();}}catch(e){console.warn('Sheet:',e);}
 }
 
 function vis(){return filter==='all'?games:games.filter(g=>g.cat===filter);}
@@ -415,7 +357,7 @@ function renderGames(){
   document.getElementById('gamesGrid').innerHTML=list.slice((page-1)*PER,page*PER).map((g,i)=>`
     <div class="gcard" data-idx="${games.indexOf(g)}" style="animation:fadeUp .5s ${i*.04}s both">
       <div class="gcard-thumb">${g.img?`<img src="${esc(g.img)}" alt="${esc(g.name)}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.75;">`:''}<div class="gcard-letter"${g.img?' style="position:relative;z-index:1;text-shadow:0 2px 8px rgba(0,0,0,.8)"':''}>${esc(g.name)[0]||'?'}</div>${g.badge?`<span class="gbadge ${esc(g.badge)}">${esc(g.badgeLabel||g.badge)}</span>`:''}</div>
-      <div class="gcard-info"><div class="gcard-name">${esc(g.name)}</div>
+      <div class="gcard-info"><div class="gcard-name">${esc(g.name)}</div><div class="gcard-desc">${esc(g.desc)}</div>
         <div class="gcard-meta"><span class="gcard-pl">👥 ${esc(g.players)}</span><div class="gdots">${[1,2,3,4,5].map(d=>`<div class="gdot${d<=g.diff?' on':''}"></div>`).join('')}</div></div>
       </div></div>`).join('');
 }
@@ -429,7 +371,6 @@ document.getElementById('gamesGrid').addEventListener('click',e=>{
   document.getElementById('gmodalDesc').textContent=g.desc||'';
   document.getElementById('gmodalPlayers').textContent=g.players||'';
   document.getElementById('gmodalDiff').textContent='⭐'.repeat(Math.min(parseInt(g.diff)||0,5));
-  document.getElementById('gmodalGenre').textContent=(g.cat||'').charAt(0).toUpperCase()+(g.cat||'').slice(1);
   document.getElementById('gmodalBg').classList.add('open');document.body.style.overflow='hidden';
 });
 document.getElementById('gmodalClose').addEventListener('click',()=>{document.getElementById('gmodalBg').classList.remove('open');document.body.style.overflow='';});
@@ -439,7 +380,6 @@ document.getElementById('filterBar').addEventListener('click',e=>{if(!e.target.c
 document.getElementById('prevBtn').addEventListener('click',()=>{if(page>1){page--;renderGames();}});
 document.getElementById('nextBtn').addEventListener('click',()=>{if(page<Math.ceil(vis().length/PER)){page++;renderGames();}});
 
-renderGames();
-loadFromSheet();
+renderGames();loadFromSheet();
 </script>
 </body></html>
