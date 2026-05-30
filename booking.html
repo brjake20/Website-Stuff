@@ -123,8 +123,8 @@
 
 <!-- PRICING TOGGLE -->
 <div class="price-toggle reveal">
-  <div class="ptog on" data-panel="vr">🎮 VR Arena Games</div>
-  <div class="ptog" data-panel="escape">🔐 Escape Room</div>
+  <div class="ptog on" data-panel="vr">🎮 VR Adventure Games</div>
+  <div class="ptog" data-panel="escape">🔐 VR Escape Games</div>
 </div>
 
 <!-- VR ARENA PRICING -->
@@ -132,17 +132,17 @@
   <div class="price-panel on" id="price-vr">
     <div class="ptable-scroll">
     <table class="ptable">
-      <thead><tr><th>Experience</th><th>Duration</th><th>2 Players</th><th>4 Players</th><th>5 Players</th></tr></thead>
+      <thead><tr><th>Experience</th><th>Duration</th><th>2 Players</th><th>3–4 Players</th><th>5 Players</th></tr></thead>
       <tbody>
         <tr>
-          <td><strong style="color:#fff;">3-Game Pack</strong></td>
+          <td><strong style="color:#fff;">30-Minute Session</strong></td>
           <td>30 min</td>
           <td><span class="price">$100</span></td>
           <td><span class="price">$200</span></td>
           <td><span class="price">$270</span></td>
         </tr>
         <tr>
-          <td><strong style="color:#fff;">6-Game Pack</strong></td>
+          <td><strong style="color:#fff;">60-Minute Session</strong></td>
           <td>60 min</td>
           <td><span class="price">$180</span></td>
           <td><span class="price">$360</span></td>
@@ -157,17 +157,17 @@
   <div class="price-panel" id="price-escape">
     <div class="ptable-scroll">
     <table class="ptable">
-      <thead><tr><th>Experience</th><th>Duration</th><th>2 Players</th><th>4 Players</th><th>5 Players</th></tr></thead>
+      <thead><tr><th>Experience</th><th>Duration</th><th>2 Players</th><th>3–4 Players</th><th>5 Players</th></tr></thead>
       <tbody>
         <tr>
-          <td><strong style="color:#fff;">Escape Room</strong></td>
+          <td><strong style="color:#fff;">VR Escape Game</strong></td>
           <td>45 min</td>
           <td><span class="price">$135</span></td>
           <td><span class="price">$270</span></td>
           <td><span class="price">$345</span></td>
         </tr>
         <tr>
-          <td><strong style="color:#fff;">Escape Room</strong></td>
+          <td><strong style="color:#fff;">VR Escape Game</strong></td>
           <td>60 min</td>
           <td><span class="price">$180</span></td>
           <td><span class="price">$360</span></td>
@@ -183,10 +183,10 @@
 <div class="feat-strip reveal">
   <div class="feat-item">Full VR headset + haptics</div>
   <div class="feat-item">Dedicated VR technician</div>
-  <div class="feat-item">Up to 6 players per arena</div>
-  <div class="feat-item">Personal safety orientation</div>
+  <div class="feat-item">Up to 5 players per arena</div>
+  <div class="feat-item">Vote as a squad on what to play</div>
+  <div class="feat-item">Play one game or mix it up</div>
   <div class="feat-item">30+ games to choose from</div>
-  <div class="feat-item">Walk-ins welcome (if available)</div>
 </div>
 
 <!-- BOOK NOW CTA -->
@@ -207,7 +207,7 @@
 <div class="games-sec">
   <div class="sec-head reveal"><span class="eyebrow">Browse Our Games</span><h2 class="sec-title">All Games</h2><p class="sec-sub">Click any game for full details.</p></div>
   <div class="filter-bar" id="filterBar">
-    <button class="fpill on" data-f="all">All</button><button class="fpill" data-f="action">Action</button><button class="fpill" data-f="horror">Horror</button><button class="fpill" data-f="adventure">Adventure</button><button class="fpill" data-f="multiplayer">Multiplayer</button><button class="fpill" data-f="escape">Escape Room</button>
+    <button class="fpill on" data-f="all">All</button><button class="fpill" data-f="action">Action</button><button class="fpill" data-f="horror">Horror</button><button class="fpill" data-f="adventure">Adventure</button><button class="fpill" data-f="multiplayer">Multiplayer</button><button class="fpill" data-f="escape">Escape Games</button>
   </div>
   <div class="games-grid" id="gamesGrid"></div>
   <div class="games-foot"><button class="gpbtn" id="prevBtn">← Prev</button><span class="gpinfo" id="pageInfo">Page 1</span><button class="gpbtn" id="nextBtn">Next →</button></div>
@@ -258,6 +258,16 @@ document.querySelectorAll('.ptog').forEach(t=>{
     document.getElementById('price-'+t.dataset.panel).classList.add('on');
   });
 });
+// Auto-open tab from URL param (e.g. ?tab=escape)
+(function(){
+  const p=new URLSearchParams(window.location.search).get('tab');
+  if(p==='escape'){
+    document.querySelectorAll('.ptog').forEach(x=>x.classList.remove('on'));
+    document.querySelectorAll('.price-panel').forEach(x=>x.classList.remove('on'));
+    document.querySelector('[data-panel="escape"]').classList.add('on');
+    document.getElementById('price-escape').classList.add('on');
+  }
+})();
 
 /* ══ HTML SANITIZER ══ */
 function esc(s){if(!s)return'';const d=document.createElement('div');d.textContent=s;return d.innerHTML;}
