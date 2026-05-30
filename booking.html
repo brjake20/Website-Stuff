@@ -310,7 +310,14 @@ function parseCSV(csv){
     const vals=[];let cur='',inQ=false;
     for(const ch of line){if(ch==='"'){inQ=!inQ;}else if(ch===','&&!inQ){vals.push(cur.trim());cur='';}else{cur+=ch;}}
     vals.push(cur.trim());const obj={};headers.forEach((h,i)=>{obj[h]=vals[i]||'';});
-    obj.diff=parseInt(obj.diff)||2;obj.badge=obj.badge||'';obj.badgeLabel=obj.badgelabel||obj.badgeLabel||'';obj.img=obj.img||'';
+    if(obj.difficulty)obj.diff=obj.difficulty;if(obj.image)obj.img=obj.image;
+    obj.diff=parseInt(obj.diff)||2;obj.badge=obj.badge||'';obj.badgeLabel=obj.badgelabel||obj.badgeLabel||'';
+    // Convert Google Drive links to direct image URLs
+    if(obj.img&&obj.img.includes('drive.google.com/file/d/')){
+      const m=obj.img.match(/\/d\/([^\/]+)/);
+      if(m)obj.img='https://drive.google.com/uc?export=view&id='+m[1];
+    }
+    obj.img=obj.img||'';
     return obj;
   }).filter(g=>g.name);
 }
