@@ -270,16 +270,16 @@
 <script>
 /* TOP 5 */
 const TOP5=[
-  {name:"Dragon's Lair VR",cat:"arena",rank:1},
-  {name:"Battle Royale VR",cat:"arena",rank:2},
-  {name:"Raven's Curse",cat:"escape room",rank:3},
-  {name:"Cyber Arena",cat:"arena",rank:4},
-  {name:"The Haunting",cat:"escape room",rank:5}
+  {name:"Mission Z",cat:"action",rank:1,img:"images/mission-z.webp"},
+  {name:"Cyberclash Tournament",cat:"multiplayer",rank:2,img:"images/cyberclash-tournament.webp"},
+  {name:"Insanity: The Haunting",cat:"horror",rank:3,img:"images/insanity.webp"},
+  {name:"DragonFall Series",cat:"adventure",rank:4,img:"images/dragonfall.webp"},
+  {name:"Mission Z 2",cat:"action",rank:5,img:"images/mission-z-2.webp"}
 ];
 const ft=document.getElementById('featTrack');
 ft.innerHTML=TOP5.map(g=>`
   <a href="booking.html" class="feat-card">
-    <div class="feat-cover"><div class="feat-cover-inner"><span class="feat-letter">${g.name[0]}</span></div>
+    <div class="feat-cover">${g.img?`<img src="${g.img}" alt="${g.name}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">`:''}<div class="feat-cover-inner"><span class="feat-letter" ${g.img?'style="text-shadow:0 2px 12px rgba(0,0,0,.9);position:relative;z-index:1;"':''}>${g.name[0]}</span></div>
       <span class="feat-rank">#${g.rank}</span><span class="feat-cat">${g.cat}</span>
     </div>
     <div class="feat-info"><div class="feat-name">${g.name}</div></div>

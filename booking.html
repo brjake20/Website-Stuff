@@ -83,6 +83,9 @@
 .gmodal{background:#0a0620;border:1px solid rgba(255,255,255,.08);border-radius:14px;max-width:520px;width:100%;padding:36px;position:relative;}
 .gmodal-close{position:absolute;top:14px;right:14px;background:none;border:none;color:var(--dim);font-size:1.1rem;cursor:pointer;padding:6px;}
 .gmodal-close:hover{color:#fff;}
+.gmodal-media{width:100%;border-radius:10px;overflow:hidden;margin-bottom:18px;background:#0a0620;}
+.gmodal-media iframe{width:100%;aspect-ratio:16/9;border:none;display:block;}
+.gmodal-media img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;}
 .gmodal-header{display:flex;gap:18px;align-items:center;margin-bottom:20px;}
 .gmodal-icon{width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,#0e0530,#1a0840);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 .gmodal-icon span{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.8rem;color:rgba(168,85,247,.5);}
@@ -213,6 +216,7 @@
 <div class="gmodal-bg" id="gmodalBg">
   <div class="gmodal">
     <button class="gmodal-close" id="gmodalClose">✕</button>
+    <div class="gmodal-media" id="gmodalMedia"></div>
     <div class="gmodal-header">
       <div class="gmodal-icon"><span id="gmodalLetter">D</span></div>
       <div><div id="gmodalName" style="font-family:'Cinzel',serif;font-size:1rem;font-weight:600;color:#fff;margin-bottom:2px;"></div><div id="gmodalCat" style="font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--green);"></div></div>
@@ -318,6 +322,7 @@ function parseCSV(csv){
       if(m)obj.img='https://drive.google.com/uc?export=view&id='+m[1];
     }
     obj.img=obj.img||'';
+    obj.vid=obj.vid||obj.video||'';
     return obj;
   }).filter(g=>g.name);
 }
@@ -343,6 +348,23 @@ function renderGames(){
 document.getElementById('gamesGrid').addEventListener('click',e=>{
   const card=e.target.closest('.gcard');if(!card)return;
   const g=games[parseInt(card.dataset.idx)];if(!g)return;
+  
+  // Video or image in modal
+  const media=document.getElementById('gmodalMedia');
+  if(g.vid){
+    // Extract YouTube video ID
+    let vid='';
+    const m1=g.vid.match(/(?:youtu\.be\/|youtube\.com\/watch\?v=|youtube\.com\/embed\/)([^?&\s]+)/);
+    if(m1)vid=m1[1];
+    if(vid){
+      media.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+esc(vid)+'?rel=0" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen></iframe>';
+    }else{media.innerHTML='';}
+  }else if(g.img){
+    media.innerHTML='<img src="'+esc(g.img)+'" alt="'+esc(g.name)+'">';
+  }else{
+    media.innerHTML='';
+  }
+  
   document.getElementById('gmodalLetter').textContent=(g.name||'?')[0];
   document.getElementById('gmodalName').textContent=g.name||'';
   document.getElementById('gmodalCat').textContent=(g.cat||'').toUpperCase();
@@ -351,8 +373,8 @@ document.getElementById('gamesGrid').addEventListener('click',e=>{
   document.getElementById('gmodalDiff').textContent='⭐'.repeat(Math.min(parseInt(g.diff)||0,5));
   document.getElementById('gmodalBg').classList.add('open');document.body.style.overflow='hidden';
 });
-document.getElementById('gmodalClose').addEventListener('click',()=>{document.getElementById('gmodalBg').classList.remove('open');document.body.style.overflow='';});
-document.getElementById('gmodalBg').addEventListener('click',e=>{if(e.target===e.currentTarget){document.getElementById('gmodalBg').classList.remove('open');document.body.style.overflow='';}});
+document.getElementById('gmodalClose').addEventListener('click',()=>{document.getElementById('gmodalBg').classList.remove('open');document.body.style.overflow='';document.getElementById('gmodalMedia').innerHTML='';});
+document.getElementById('gmodalBg').addEventListener('click',e=>{if(e.target===e.currentTarget){document.getElementById('gmodalBg').classList.remove('open');document.body.style.overflow='';document.getElementById('gmodalMedia').innerHTML='';}});
 
 document.getElementById('filterBar').addEventListener('click',e=>{if(!e.target.classList.contains('fpill'))return;document.querySelectorAll('.fpill').forEach(b=>b.classList.remove('on'));e.target.classList.add('on');filter=e.target.dataset.f;page=1;renderGames();});
 document.getElementById('prevBtn').addEventListener('click',()=>{if(page>1){page--;renderGames();}});
