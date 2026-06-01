@@ -125,96 +125,104 @@
   </div>
 </div>
 
-<!-- HERO -->
-<div style="position:relative;overflow:hidden;min-height:55vh;display:flex;align-items:center;justify-content:center;padding:120px 48px 40px;">
-  <video autoplay muted loop playsinline disablepictureinpicture poster="exp-bg-poster.jpg" preload="metadata" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;z-index:0;"><source src="exp-bg.mp4" type="video/mp4"></video>
-  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.3) 0%,rgba(0,0,0,.15) 40%,rgba(0,0,0,.6) 100%);z-index:1;"></div>
-  <div style="position:relative;z-index:2;text-align:center;">
-    <div style="display:inline-block;background:rgba(0,0,0,.65);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:32px 48px;">
+<!-- VIDEO BACKGROUND SECTION -->
+<div style="position:relative;overflow:hidden;">
+  <video autoplay muted loop playsinline disablepictureinpicture poster="exp-bg-poster.jpg" preload="metadata" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center;z-index:0;"><source src="exp-bg.mp4" type="video/mp4"></video>
+  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.25) 0%,rgba(0,0,0,.1) 30%,rgba(0,0,0,.1) 70%,rgba(0,0,0,.7) 100%);z-index:1;"></div>
+
+  <!-- HERO TEXT -->
+  <div style="position:relative;z-index:2;text-align:center;padding:140px 48px 36px;">
+    <div style="display:inline-block;background:rgba(0,0,0,.6);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:28px 44px;">
       <span class="eyebrow reveal" style="margin-bottom:10px;">Book Your Experience</span>
-      <h1 class="sec-title reveal d1" style="font-size:clamp(1.8rem,4vw,3rem);margin-bottom:8px;text-shadow:0 2px 20px rgba(0,0,0,.8);">Choose Your Adventure</h1>
-      <p class="sec-sub reveal d2" style="margin-bottom:0;text-shadow:0 1px 10px rgba(0,0,0,.6);">Pick your experience, select a time, and we'll see you on the arena floor.</p>
-    </div>
-  </div>
-</div>
-
-<!-- PRICING TOGGLE -->
-<div class="price-toggle reveal">
-  <div class="ptog on" data-panel="vr">🎮 VR Adventure Games</div>
-  <div class="ptog" data-panel="escape">🔐 VR Escape Games</div>
-</div>
-
-<!-- VR ARENA PRICING -->
-<div class="pricing-wrap">
-  <div class="price-panel on" id="price-vr">
-    <div class="ptable-scroll">
-    <table class="ptable">
-      <thead><tr><th>Experience</th><th>2 Players</th><th>3–4 Players</th><th>5 Players</th></tr></thead>
-      <tbody>
-        <tr>
-          <td><strong style="color:#fff;">30-Minute Session</strong></td>
-          <td><span class="price">$100</span></td>
-          <td><span class="price">$200</span></td>
-          <td><span class="price">$270</span></td>
-        </tr>
-        <tr>
-          <td><strong style="color:#fff;">60-Minute Session</strong></td>
-          <td><span class="price">$180</span></td>
-          <td><span class="price">$360</span></td>
-          <td><span class="price">$460</span></td>
-        </tr>
-      </tbody>
-    </table>
+      <h1 class="sec-title reveal d1" style="font-size:clamp(1.8rem,4vw,3rem);margin-bottom:8px;">Choose Your Adventure</h1>
+      <p class="sec-sub reveal d2" style="margin-bottom:0;">Pick your experience, select a time, and we'll see you on the arena floor.</p>
     </div>
   </div>
 
-  <!-- ESCAPE ROOM PRICING -->
-  <div class="price-panel" id="price-escape">
-    <div class="ptable-scroll">
-    <table class="ptable">
-      <thead><tr><th>Experience</th><th>2 Players</th><th>3–4 Players</th><th>5 Players</th></tr></thead>
-      <tbody>
-        <tr>
-          <td><strong style="color:#fff;">45-Minute Session</strong></td>
-          <td><span class="price">$135</span></td>
-          <td><span class="price">$270</span></td>
-          <td><span class="price">$345</span></td>
-        </tr>
-        <tr>
-          <td><strong style="color:#fff;">60-Minute Session</strong></td>
-          <td><span class="price">$180</span></td>
-          <td><span class="price">$360</span></td>
-          <td><span class="price">$460</span></td>
-        </tr>
-      </tbody>
-    </table>
+  <!-- PRICING TOGGLE -->
+  <div style="position:relative;z-index:2;display:flex;justify-content:center;padding:0 48px;margin-bottom:24px;">
+    <div style="display:flex;gap:0;max-width:400px;width:100%;">
+      <div class="ptog on" data-panel="vr">🎮 VR Adventure Games</div>
+      <div class="ptog" data-panel="escape">🔐 VR Escape Games</div>
     </div>
   </div>
-</div>
 
-<!-- FEATURES (shared — always visible) -->
-<div class="feat-strip reveal">
-  <div class="feat-item">Full VR headset + haptics</div>
-  <div class="feat-item">Dedicated VR technician</div>
-  <div class="feat-item">Up to 5 players per arena</div>
-  <div class="feat-item">Vote as a squad on what to play</div>
-  <div class="feat-item">Play one game or mix it up</div>
-  <div class="feat-item">30+ games to choose from</div>
-</div>
+  <!-- PRICING + FEATURES + CTA in glass panel -->
+  <div style="position:relative;z-index:2;max-width:900px;margin:0 auto 0;padding:0 48px 48px;">
+    <div style="background:rgba(0,0,0,.6);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:28px 32px 32px;">
 
-<!-- BOOK NOW CTA -->
-<div class="book-cta-section reveal">
-  <a href="https://app.squareup.com/appointments/book/aukrz0no7ksr12/L2MJ57HQ86YXA/start" target="_blank" rel="noopener noreferrer" class="book-main-btn">
-    <span class="book-main-text"><strong>Book Now</strong></span>
-    <span class="book-main-arrow">↗</span>
-  </a>
-  <div class="book-alt">
-    <span>Or call</span>
-    <a href="tel:+19282355353">(928) 235-5353</a>
+      <!-- VR PRICING -->
+      <div class="price-panel on" id="price-vr">
+        <div class="ptable-scroll">
+        <table class="ptable">
+          <thead><tr><th>Experience</th><th>2 Players</th><th>3–4 Players</th><th>5 Players</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong style="color:#fff;">30-Minute Session</strong></td>
+              <td><span class="price">$100</span></td>
+              <td><span class="price">$200</span></td>
+              <td><span class="price">$270</span></td>
+            </tr>
+            <tr>
+              <td><strong style="color:#fff;">60-Minute Session</strong></td>
+              <td><span class="price">$180</span></td>
+              <td><span class="price">$360</span></td>
+              <td><span class="price">$460</span></td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+      </div>
+
+      <!-- ESCAPE PRICING -->
+      <div class="price-panel" id="price-escape">
+        <div class="ptable-scroll">
+        <table class="ptable">
+          <thead><tr><th>Experience</th><th>2 Players</th><th>3–4 Players</th><th>5 Players</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong style="color:#fff;">45-Minute Session</strong></td>
+              <td><span class="price">$135</span></td>
+              <td><span class="price">$270</span></td>
+              <td><span class="price">$345</span></td>
+            </tr>
+            <tr>
+              <td><strong style="color:#fff;">60-Minute Session</strong></td>
+              <td><span class="price">$180</span></td>
+              <td><span class="price">$360</span></td>
+              <td><span class="price">$460</span></td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+      </div>
+
+      <!-- FEATURES -->
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px 18px;margin:20px 0 24px;">
+        <div class="feat-item">Full VR headset + haptics</div>
+        <div class="feat-item">Dedicated VR technician</div>
+        <div class="feat-item">Up to 5 players per arena</div>
+        <div class="feat-item">Vote as a squad on what to play</div>
+        <div class="feat-item">Play one game or mix it up</div>
+        <div class="feat-item">30+ games to choose from</div>
+      </div>
+
+      <!-- BOOK NOW CTA -->
+      <div style="text-align:center;">
+        <a href="https://app.squareup.com/appointments/book/aukrz0no7ksr12/L2MJ57HQ86YXA/start" target="_blank" rel="noopener noreferrer" class="book-main-btn">
+          <span class="book-main-text"><strong>Book Now</strong></span>
+          <span class="book-main-arrow">↗</span>
+        </a>
+        <div class="book-alt">
+          <span>Or call</span>
+          <a href="tel:+19282355353">(928) 235-5353</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="discount-center" style="margin-top:20px;">🎖 Military, veteran &amp; first responder discounts — ask at check-in</div>
   </div>
 </div>
-
-<div class="discount-center">🎖 Military, veteran &amp; first responder discounts — ask at check-in</div>
 
 <!-- GAMES BROWSE -->
 <div class="games-sec">
